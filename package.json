@@ -1,0 +1,55 @@
+{
+  "name": "shuklaom-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "homepage": "https://shuklaom.github.io",
+  "description": "Professional portfolio website built with React",
+  "author": "Om Shukla",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "5.0.1",
+    "react-router-dom": "^6.26.2",
+    "framer-motion": "^11.5.4",
+    "react-icons": "^5.3.0",
+    "@emailjs/browser": "^4.4.1",
+    "aos": "^2.3.4",
+    "typed.js": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/aos": "^3.0.7",
+    "gh-pages": "^6.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "overrides": {
+    "glob": "^10.3.10",
+    "rimraf": "^5.0.5",
+    "eslint": "^9.9.1"
+  }
+}
