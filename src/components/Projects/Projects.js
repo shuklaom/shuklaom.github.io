@@ -1,371 +1,327 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FiGithub, FiExternalLink, FiFilter, FiX } from 'react-icons/fi';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FiGithub, FiExternalLink } from 'react-icons/fi';
 import './Projects.css';
 
 const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState('All');
-  const [selectedProject, setSelectedProject] = useState(null);
-
-  const projects = [
+  const universityProjects = [
     {
-      id: 1,
-      title: 'Card Shark - Card Game for Android OS',
-      category: 'Mobile',
-      description: 'An Android card game with REST APIs to accept moves from game UI and process the logic.',
-      longDescription: 'Developed a comprehensive Android card game featuring REST APIs for move processing, deck mechanism allowing players to create up to 3 unique decks of 10 cards, battle system where players use cards to battle with another player, and inventory tracking system. Built using Spring Boot, Java, JPA, SQL, and MySQL with GitHub for version control.',
-      image: 'https://via.placeholder.com/400x300/667eea/ffffff?text=Card+Shark+Game',
+      title: 'RUMBLE - Outdoor Roomba',
+      description: 'Designed and developed a responsive React-based web application for managing autonomous outdoor cleaning robots with secure authentication and real-time monitoring capabilities.',
+      technologies: ['React.js', 'JavaScript', 'Tailwind CSS', 'Spring Boot', 'Java', 'REST APIs', 'Google Maps API', 'Git'],
+      period: 'January 2025 - Present',
+      impact: [
+        'Implemented user registration and login system with password recovery, profile management, and form validation with user-friendly error handling',
+        'Created an interactive dashboard featuring live robot location tracking via Google Maps API, fleet statistics visualization, and robot assignment management',
+        'Developed comprehensive settings page allowing users to update profiles, change passwords, and manage account preferences with real-time validation',
+        'Implemented modern UX features including typewriter animations, glassmorphism design, loading states, and accessibility standards',
+        'Contributed REST API endpoints to Spring Boot backend for user profile management, password reset functionality, and robot-to-user assignment operations'
+      ],
+      github: null,
+      demo: null
+    },
+    {
+      title: 'Card Shark – Card Game for Android OS',
+      description: 'Developed an Android card game with deck management and multiplayer functionality.',
       technologies: ['Spring Boot', 'Java', 'JPA', 'SQL', 'MySQL', 'GitHub'],
-      github: 'https://github.com/shuklaom/card-shark',
-      demo: '#',
-      features: [
-        'REST APIs for game logic processing',
-        'Deck creation mechanism (up to 3 unique decks)',
-        'Card battle system between players',
-        'Inventory tracking for card ownership',
-        'Database design and table structure',
-        'Spring Boot backend architecture'
+      period: 'August 2022 - December 2022',
+      impact: [
+        'Implemented REST APIs to accept moves from game UI and process the logic',
+        'Implemented REST APIs to support a deck mechanism where player can create up to 3 unique decks of 10 cards to use in battles',
+        'Implemented parts of game play where the player uses cards to battle with another player',
+        'Implemented logic to keep inventory to track of cards the player owns',
+        'Created database design and table structure to store information about cards, players, decks and lobby'
       ],
-      status: 'Completed'
+      github: null,
+      demo: null
     },
     {
-      id: 2,
-      title: 'Assignment Tracker Web Application',
-      category: 'Full Stack',
-      description: 'Web application for tracking assignments with user authentication and admin functionality.',
-      longDescription: 'Built a comprehensive assignment tracking system using HTML 5, CSS, and JavaScript. Features include user authentication system, Add/Update User Admin page, Assignments management pages, and a dashboard to view list of assignments by due dates with necessary user actions and on-screen validations for user inputs and service calls.',
-      image: 'https://via.placeholder.com/400x300/f093fb/ffffff?text=Assignment+Tracker',
-      technologies: ['HTML5', 'CSS', 'JavaScript', 'User Authentication', 'Admin Panel'],
-      github: 'https://github.com/shuklaom/assignment-tracker',
-      demo: '#',
-      features: [
-        'User Authentication System',
-        'Admin User Management',
-        'Assignment Management Pages',
-        'Due Date Dashboard',
-        'Input Validation',
-        'Service Call Validation',
-        'Responsive Design'
+      title: 'Assignment Tracker Web application',
+      description: 'Developed UI for a web application using HTML 6, CSS, JavaScript to manage assignments and track due dates.',
+      technologies: ['HTML', 'CSS', 'JavaScript'],
+      period: 'January 2022 - May 2022',
+      impact: [
+        'Developed UI for a web application using HTML 6, CSS, JavaScript',
+        'Designed and implemented screens for User authentication, Add/Update User Admin page, Assignments management pages and a dashboard to view list of assignments by due dates with necessary user actions and on-screen validations for user inputs and service calls'
       ],
-      status: 'Completed'
+      github: null,
+      demo: null
     },
     {
-      id: 3,
       title: 'Traffic Light System',
-      category: 'Hardware',
-      description: 'Verilog-based traffic light system designed and implemented using Intel Quartus Prime.',
-      longDescription: 'Designed and created a traffic light system in Verilog and Block design using Intel Quartus Prime. Implemented and tested the system using DE2-115 board. Created circuit for managing number of cars in each side of the lane at the intersection and implemented Verilog logic for managing greenlight in the intersection.',
-      image: 'https://via.placeholder.com/400x300/4facfe/ffffff?text=Traffic+Light+System',
-      technologies: ['Verilog', 'Intel Quartus Prime', 'DE2-115 Board', 'Block Design'],
-      github: 'https://github.com/shuklaom/traffic-light-system',
-      demo: '#',
-      features: [
-        'Verilog and Block design implementation',
-        'DE2-115 board testing',
-        'Car counting system',
-        'Lane management logic',
-        'Intersection control',
-        'Greenlight management system'
+      description: 'Designed and created a traffic light system in Verilog and Block design using Intel Quartus Prime.',
+      technologies: ['Verilog', 'Intel Quartus Prime', 'DE2-115 board'],
+      period: 'January 2022 - April 2022',
+      impact: [
+        'Implemented and tested the system using DE2-115 board',
+        'Created circuit for managing number of cars in each side of the lane at the intersection',
+        'Created Verilog logic for managing greenlight in the intersection'
       ],
-      status: 'Completed'
+      github: null,
+      demo: null
     },
     {
-      id: 4,
       title: 'Pokémon Game',
-      category: 'Game Development',
-      description: 'C++ implementation of Pokémon game mechanics with multiple features.',
-      longDescription: 'Implemented comprehensive Pokémon game mechanics using C++ including Pokémon stats and abilities from a Pokédex folder, multiple landscapes and maps with trainers and facilities, transfer system between maps, terrain generation, and User Interface development using C language.',
-      image: 'https://via.placeholder.com/400x300/667eea/ffffff?text=Pokemon+Game',
-      technologies: ['C++', 'C', 'Pokédex Integration', 'UI Development'],
-      github: 'https://github.com/shuklaom/pokemon-game',
-      demo: '#',
-      features: [
-        'Pokémon stats and abilities system',
-        'Multiple landscapes and maps',
-        'Pokémon trainers and facilities',
-        'Map transfer system',
-        'Terrain generation',
-        'Custom User Interface'
+      description: 'Implemented Pokémon stats and abilities from a Pokédex folder, multiple landscapes and maps with Pokémon trainers and facilities.',
+      technologies: ['C', 'C++'],
+      period: 'January 2022 - April 2022',
+      impact: [
+        'Implemented Pokémon stats and abilities from a Pokédex folder',
+        'Implemented multiple landscapes and maps, Pokémon trainers and facilities, transfer between maps, terrain generation and User Interface using C language',
+        'Implemented loading Pokémon into the maps, and Pokémon battles in C++'
       ],
-      status: 'Completed'
+      github: null,
+      demo: null
     },
     {
-      id: 5,
-      title: 'Text-based Maze Runner',
-      category: 'Game Development',
-      description: 'C language implementation of a text-based maze game with team collaboration.',
-      longDescription: 'Created a text-based Maze runner game in C language as part of a team project. Helped team members debug issues and fix defects. Worked on a team of 3 students to demonstrate various C coding skills like pointers, structures, file I/O, methods, exception handling. Created and implemented Maze to start the game, level transitions, points, and inventory for the player and non-player characters.',
-      image: 'https://via.placeholder.com/400x300/f093fb/ffffff?text=Maze+Runner',
-      technologies: ['C', 'Pointers', 'Structures', 'File I/O', 'Exception Handling'],
-      github: 'https://github.com/shuklaom/maze-runner',
-      demo: '#',
-      features: [
-        'Text-based maze navigation',
-        'Level transition system',
-        'Points and scoring system',
-        'Player and NPC inventory',
-        'Team collaboration',
-        'C programming fundamentals'
+      title: 'Text based Maze runner',
+      description: 'Created a text-based Maze runner game in C language to demonstrate various C coding skills.',
+      technologies: ['C'],
+      period: 'January 2021 - May 2021',
+      impact: [
+        'Created a text-based Maze runner game in C language. Helped team members debug issues and fix defects',
+        'Worked on a team of 3 students to demonstrate various C coding skills like pointers, structures, file I/O, methods, exception handling',
+        'Created and implemented Maze to start the game, level transitions, points, and inventory for the player and non-player characters'
       ],
-      status: 'Completed'
+      github: null,
+      demo: null
     },
     {
-      id: 6,
       title: '2D Chess Game',
-      category: 'Game Development',
-      description: 'Java implementation of a real-life Chess game with complete game logic.',
-      longDescription: 'Created a comprehensive 2D Chess game using Java with real-life Chess rules implementation. Features include GUI game pieces and Chess board, Java logic to hold each game piece information and X/Y coordinates on the board, game piece object updates after every move, and check algorithms for each game piece to find all positions a selected piece can move.',
-      image: 'https://via.placeholder.com/400x300/4facfe/ffffff?text=2D+Chess+Game',
-      technologies: ['Java', 'Swing', 'Game Logic', 'GUI Development'],
-      github: 'https://github.com/shuklaom/2d-chess-game',
-      demo: '#',
-      features: [
-        'Complete Chess rules implementation',
-        'GUI game pieces and board',
-        'Coordinate tracking system',
-        'Game piece object management',
-        'Move validation algorithms',
-        'Position calculation system'
+      description: 'Created real-life Chess using Java with GUI game pieces and a Chess board.',
+      technologies: ['Java', 'Swing'],
+      period: 'January 2021 - May 2021',
+      impact: [
+        'Created real-life Chess using Java',
+        'Created GUI game pieces and a Chess board',
+        'Implemented Java logic to hold each game piece information and X/Y coordinates on the board. Updated game piece objects after every move',
+        'Implemented check algorithms for each game piece to find all positions a selected piece can move. The new position must be within piece movement parameters and must not already contain a different game piece'
       ],
-      status: 'Completed'
-    },
-    {
-      id: 7,
-      title: 'John Deere Academy Android App',
-      category: 'Mobile',
-      description: 'Android application for Renting Farming and Agricultural Equipment with Agile development.',
-      longDescription: 'Developed an Android app for Renting Farming and Agricultural Equipment. Designed and created User interface of an Android application, implemented navigation flows between screens and screen transitions, coded buttons and screen behaviors. Worked in an Agile team of 6 team members and participated in Scrum rituals during the project. Used Android Studio, Java, GitHub, Discord, WebEx meetings and Trello for Scrum process.',
-      image: 'https://via.placeholder.com/400x300/667eea/ffffff?text=John+Deere+App',
-      technologies: ['Android Studio', 'Java', 'GitHub', 'Discord', 'WebEx', 'Trello'],
-      github: 'https://github.com/shuklaom/john-deere-academy',
-      demo: '#',
-      features: [
-        'Equipment rental system',
-        'User interface design',
-        'Screen navigation flows',
-        'Button and behavior coding',
-        'Agile team collaboration',
-        'Scrum methodology implementation'
-      ],
-      status: 'Completed'
-    },
-    {
-      id: 8,
-      title: '3D Multi-level Escape Room Simulator',
-      category: 'Game Development',
-      description: 'Unity-based 3D escape room game with multiple levels and interactive elements.',
-      longDescription: 'Designed and created terrain and various sets of level 1 and level 3. Created game assets like tables, crates, household items. Implemented randomize code logic for each level. Worked in team of 3 members. Used C#, Unity Game creation platform, and Blender 3D model creation platform for development.',
-      image: 'https://via.placeholder.com/400x300/f093fb/ffffff?text=3D+Escape+Room',
-      technologies: ['C#', 'Unity', 'Blender', '3D Modeling'],
-      github: 'https://github.com/shuklaom/3d-escape-room',
-      demo: '#',
-      features: [
-        'Multi-level terrain design',
-        'Custom 3D game assets',
-        'Randomized code logic',
-        'Interactive household items',
-        'Team collaboration',
-        '3D model creation'
-      ],
-      status: 'Completed'
+      github: null,
+      demo: null
     }
   ];
 
-  const categories = ['All', 'Full Stack', 'Mobile', 'Game Development', 'Hardware'];
+  const preUniversityProjects = [
+    {
+      title: 'Android app for Renting Farming and Agricultural Equipment',
+      description: 'Designed and created a User interface of an Android application with navigation flows and screen transitions at John Deere Academy.',
+      technologies: ['Android Studio', 'Java', 'GitHub', 'Discord', 'WebEx', 'Trello'],
+      period: 'January 2020 - May 2020',
+      impact: [
+        'Designed and created a User interface of an Android application',
+        'Implemented navigation flows between screens and screen transitions',
+        'Coded buttons and screen behaviors',
+        'Worked in an Agile team of 6 team members. Participated in Scrum rituals during the project'
+      ],
+      github: null,
+      demo: null
+    },
+    {
+      title: '3D Multi-level Escape Room Simulator',
+      description: 'Designed and created terrain and various sets of level 1 and level 3 escape rooms using Unity Game creation platform.',
+      technologies: ['C#', 'Unity', 'Blender'],
+      period: 'January 2019 - May 2019',
+      impact: [
+        'Designed and created terrain and various sets of level 1 and level 3',
+        'Created game assets like tables, crates, household items',
+        'Implemented randomize code logic for each level',
+        'Worked in team of 3 members'
+      ],
+      github: null,
+      demo: null
+    }
+  ];
 
-  const filteredProjects = activeFilter === 'All' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 }
+    }
+  };
 
   return (
-    <section id="projects" className="projects section-padding">
+    <section id="projects" className="projects section">
       <div className="container">
         <motion.div
-          className="section-header"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
         >
-          <h2 className="section-title">Featured Projects</h2>
-          <p className="section-subtitle">
-            Here are some of my recent projects that showcase my skills and experience
+          <h2 className="section-title">Projects</h2>
+          <p className="section-description">
+            A selection of projects showcasing my technical abilities and problem-solving skills.
           </p>
         </motion.div>
 
+        {/* University Projects */}
         <motion.div
-          className="filter-buttons"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
+          style={{ marginTop: '3rem' }}
         >
-          <FiFilter className="filter-icon" />
-          {categories.map((category) => (
-            <button
-              key={category}
-              className={`filter-btn ${activeFilter === category ? 'active' : ''}`}
-              onClick={() => setActiveFilter(category)}
-            >
-              {category}
-            </button>
-          ))}
-        </motion.div>
-
-        <motion.div className="projects-grid" layout>
-          <AnimatePresence>
-            {filteredProjects.map((project, index) => (
+          <h3 style={{ 
+            fontSize: '1.75rem', 
+            fontWeight: 700, 
+            color: 'var(--text-primary)', 
+            marginBottom: '2rem',
+            textAlign: 'center'
+          }}>
+            University Projects
+          </h3>
+          <motion.div
+            className="projects-grid"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            {universityProjects.map((project, index) => (
               <motion.div
-                key={project.id}
+                key={index}
                 className="project-card"
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                onClick={() => setSelectedProject(project)}
+                variants={cardVariants}
               >
-                <div className="project-image">
-                  <img src={project.image} alt={project.title} />
-                  <div className="project-overlay">
-                    <div className="project-links">
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-link"
-                        onClick={(e) => e.stopPropagation()}
-                      >
+                <div className="project-header">
+                  <h3 className="project-title">{project.title}</h3>
+                  <div className="project-links">
+                    {project.github && (
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label="View source code">
                         <FiGithub />
                       </a>
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-link"
-                        onClick={(e) => e.stopPropagation()}
-                      >
+                    )}
+                    {project.demo && (
+                      <a href={project.demo} target="_blank" rel="noopener noreferrer" aria-label="View live demo">
                         <FiExternalLink />
                       </a>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="project-content">
-                  <div className="project-header">
-                    <h3 className="project-title">{project.title}</h3>
-                    <span className={`project-status ${project.status.toLowerCase().replace(' ', '-')}`}>
-                      {project.status}
-                    </span>
-                  </div>
-                  <p className="project-description">{project.description}</p>
-                  
-                  <div className="project-tech">
-                    {project.technologies.slice(0, 3).map((tech, techIndex) => (
-                      <span key={techIndex} className="tech-badge">
-                        {tech}
-                      </span>
-                    ))}
-                    {project.technologies.length > 3 && (
-                      <span className="tech-badge more">
-                        +{project.technologies.length - 3}
-                      </span>
                     )}
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
 
-        {/* Project Modal */}
-        <AnimatePresence>
-          {selectedProject && (
-            <motion.div
-              className="project-modal-overlay"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedProject(null)}
-            >
-              <motion.div
-                className="project-modal"
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.8, opacity: 0 }}
-                onClick={(e) => e.stopPropagation()}
-              >
-                <button
-                  className="modal-close"
-                  onClick={() => setSelectedProject(null)}
-                >
-                  <FiX />
-                </button>
-                
-                <div className="modal-content">
-                  <div className="modal-image">
-                    <img src={selectedProject.image} alt={selectedProject.title} />
-                  </div>
-                  
-                  <div className="modal-info">
-                    <div className="modal-header">
-                      <h3 className="modal-title">{selectedProject.title}</h3>
-                      <span className={`project-status ${selectedProject.status.toLowerCase().replace(' ', '-')}`}>
-                        {selectedProject.status}
-                      </span>
-                    </div>
-                    
-                    <p className="modal-description">{selectedProject.longDescription}</p>
-                    
-                    <div className="modal-features">
-                      <h4>Key Features:</h4>
-                      <ul>
-                        {selectedProject.features.map((feature, index) => (
-                          <li key={index}>{feature}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    <div className="modal-tech">
-                      <h4>Technologies Used:</h4>
-                      <div className="tech-list">
-                        {selectedProject.technologies.map((tech, index) => (
-                          <span key={index} className="tech-badge">
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <div className="modal-links">
-                      <a
-                        href={selectedProject.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-secondary"
-                      >
-                        <FiGithub />
-                        View Code
-                      </a>
-                      <a
-                        href={selectedProject.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-primary"
-                      >
-                        <FiExternalLink />
-                        Live Demo
-                      </a>
-                    </div>
-                  </div>
+                {project.period && (
+                  <p style={{ 
+                    fontSize: '0.875rem', 
+                    color: 'var(--text-tertiary)', 
+                    marginBottom: '0.75rem',
+                    fontWeight: 500
+                  }}>
+                    {project.period}
+                  </p>
+                )}
+
+                <p className="project-description">{project.description}</p>
+
+                <div className="project-tech">
+                  {project.technologies.map((tech, techIndex) => (
+                    <span key={techIndex} className="tech-tag">{tech}</span>
+                  ))}
+                </div>
+
+                <div className="project-impact">
+                  <h4 className="impact-title">Key Achievements</h4>
+                  <ul className="impact-list">
+                    {project.impact.map((item, impactIndex) => (
+                      <li key={impactIndex}>{item}</li>
+                    ))}
+                  </ul>
                 </div>
               </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            ))}
+          </motion.div>
+        </motion.div>
+
+        {/* Pre-University Projects */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          style={{ marginTop: '4rem' }}
+        >
+          <h3 style={{ 
+            fontSize: '1.75rem', 
+            fontWeight: 700, 
+            color: 'var(--text-primary)', 
+            marginBottom: '2rem',
+            textAlign: 'center'
+          }}>
+            Pre-University Projects
+          </h3>
+          <motion.div
+            className="projects-grid"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            {preUniversityProjects.map((project, index) => (
+              <motion.div
+                key={index}
+                className="project-card"
+                variants={cardVariants}
+              >
+                <div className="project-header">
+                  <h3 className="project-title">{project.title}</h3>
+                  <div className="project-links">
+                    {project.github && (
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label="View source code">
+                        <FiGithub />
+                      </a>
+                    )}
+                    {project.demo && (
+                      <a href={project.demo} target="_blank" rel="noopener noreferrer" aria-label="View live demo">
+                        <FiExternalLink />
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                {project.period && (
+                  <p style={{ 
+                    fontSize: '0.875rem', 
+                    color: 'var(--text-tertiary)', 
+                    marginBottom: '0.75rem',
+                    fontWeight: 500
+                  }}>
+                    {project.period}
+                  </p>
+                )}
+
+                <p className="project-description">{project.description}</p>
+
+                <div className="project-tech">
+                  {project.technologies.map((tech, techIndex) => (
+                    <span key={techIndex} className="tech-tag">{tech}</span>
+                  ))}
+                </div>
+
+                <div className="project-impact">
+                  <h4 className="impact-title">Key Achievements</h4>
+                  <ul className="impact-list">
+                    {project.impact.map((item, impactIndex) => (
+                      <li key={impactIndex}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

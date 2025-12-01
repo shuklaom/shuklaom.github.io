@@ -1,0 +1,79 @@
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+}
+
+.theme-toggle:hover {
+  background: var(--glass-bg);
+  box-shadow: 0 4px 20px var(--shadow-medium);
+}
+
+.toggle-track {
+  position: relative;
+  width: 48px;
+  height: 24px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.toggle-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  min-width: 35px;
+  text-align: left;
+}
+
+/* Fixed position variant for floating toggle */
+.theme-toggle.fixed {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 32px var(--shadow-medium);
+}
+
+.theme-toggle.fixed:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px var(--shadow-heavy);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .theme-toggle.fixed {
+    top: 1rem;
+    right: 1rem;
+  }
+  
+  .toggle-label {
+    display: none;
+  }
+}

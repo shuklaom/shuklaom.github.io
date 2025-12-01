@@ -1,0 +1,395 @@
+/* Responsive Utilities and Media Query Helpers */
+
+/* Container Responsive Padding */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 1140px;
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 960px;
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 720px;
+    padding: 0 1.25rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: 540px;
+    padding: 0 1rem;
+  }
+}
+
+/* Section Padding */
+.section-padding {
+  padding: 6rem 0;
+}
+
+@media (max-width: 992px) {
+  .section-padding {
+    padding: 5rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 4rem 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-padding {
+    padding: 3rem 0;
+  }
+}
+
+/* Typography Responsive Sizes */
+.section-title {
+  font-size: 2.5rem;
+}
+
+@media (max-width: 992px) {
+  .section-title {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 1.75rem;
+  }
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .section-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+}
+
+/* Card Responsive Spacing */
+.card {
+  padding: 2rem;
+  border-radius: var(--border-radius-lg);
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+  }
+}
+
+@media (max-width: 576px) {
+  .card {
+    padding: 1.25rem;
+  }
+}
+
+/* Grid Responsive */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 992px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .grid-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .grid-4 {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* Flex Responsive Utilities */
+.flex-row {
+  display: flex;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .flex-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+.flex-responsive {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+/* Hide/Show on Different Screens */
+.hide-mobile {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none;
+  }
+}
+
+.hide-desktop {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hide-desktop {
+    display: block;
+  }
+}
+
+.hide-tablet {
+  display: block;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hide-tablet {
+    display: none;
+  }
+}
+
+/* Button Responsive Sizes */
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 576px) {
+  .btn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 576px) {
+  .btn-sm {
+    padding: 0.4rem 0.875rem;
+    font-size: 0.8rem;
+  }
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+@media (max-width: 576px) {
+  .btn-lg {
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+  }
+}
+
+/* Image Responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Text Alignment Responsive */
+.text-center-mobile {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .text-center-mobile {
+    text-align: center;
+  }
+}
+
+/* Spacing Utilities Responsive */
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+.mb-5 { margin-bottom: 3rem; }
+
+@media (max-width: 768px) {
+  .mb-3 { margin-bottom: 1.25rem; }
+  .mb-4 { margin-bottom: 1.5rem; }
+  .mb-5 { margin-bottom: 2rem; }
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+.mt-5 { margin-top: 3rem; }
+
+@media (max-width: 768px) {
+  .mt-3 { margin-top: 1.25rem; }
+  .mt-4 { margin-top: 1.5rem; }
+  .mt-5 { margin-top: 2rem; }
+}
+
+/* Gap Utilities Responsive */
+.gap-1 { gap: 0.5rem; }
+.gap-2 { gap: 1rem; }
+.gap-3 { gap: 1.5rem; }
+.gap-4 { gap: 2rem; }
+
+@media (max-width: 768px) {
+  .gap-3 { gap: 1.25rem; }
+  .gap-4 { gap: 1.5rem; }
+}
+
+/* Overflow Handling */
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+/* Performance Optimizations for Mobile */
+@media (max-width: 768px) {
+  /* Reduce animations on mobile for performance */
+  * {
+    animation-duration: 0.5s !important;
+  }
+  
+  /* Optimize backdrop blur on mobile */
+  .card,
+  .hero-background,
+  .modal-content {
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+  }
+}
+
+/* Touch-friendly tap targets */
+@media (hover: none) and (pointer: coarse) {
+  button,
+  a,
+  input[type="button"],
+  input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Safe area for notched devices */
+@supports (padding: max(0px)) {
+  .container {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  .section-padding {
+    padding: 3rem 0;
+  }
+  
+  .hero {
+    min-height: auto;
+    padding: 4rem 0;
+  }
+}
+
+/* Print styles */
+@media print {
+  .header,
+  .scroll-to-top,
+  .scroll-progress,
+  .three-background,
+  .particle-field {
+    display: none !important;
+  }
+  
+  .section-padding {
+    padding: 2rem 0;
+  }
+  
+  * {
+    background: white !important;
+    color: black !important;
+  }
+}

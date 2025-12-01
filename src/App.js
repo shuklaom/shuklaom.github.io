@@ -4,15 +4,14 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 // Components
-import Header from './components/Header/Header';
+import Navigation from './components/Navigation/Navigation';
 import Hero from './components/Hero/Hero';
-import About from './components/About/About';
+import Education from './components/Education/Education';
+import Experience from './components/Experience/Experience';
 import Skills from './components/Skills/Skills';
 import Projects from './components/Projects/Projects';
-import Experience from './components/Experience/Experience';
 import Contact from './components/Contact/Contact';
-import Footer from './components/Footer/Footer';
-import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import SimpleBackground from './components/SimpleBackground/SimpleBackground';
 
 // Styles
 import './App.css';
@@ -30,17 +29,16 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Header />
-        <main>
+        <SimpleBackground />
+        <Navigation />
+        <main className="main-content">
           <Hero />
-          <About />
-          <Skills />
+          <Education />
           <Experience />
+          <Skills />
           <Projects />
           <Contact />
         </main>
-        <Footer />
-        <ScrollToTop />
       </div>
     </Router>
   );

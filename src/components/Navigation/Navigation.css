@@ -1,0 +1,120 @@
+/* Navigation - Minimalist */
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(250, 250, 250, 0.8);
+  backdrop-filter: blur(10px);
+  transition: all var(--transition-base);
+  padding: var(--spacing-md) 0;
+  border-bottom: 1px solid transparent;
+}
+
+.navigation.scrolled {
+  background: rgba(250, 250, 250, 0.98);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.nav-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Nav Logo */
+.nav-logo button {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition-base);
+}
+
+.nav-logo button:hover {
+  background: var(--bg-secondary);
+}
+
+/* Nav Links */
+.nav-links {
+  display: flex;
+  gap: var(--spacing-xs);
+  align-items: center;
+}
+
+.nav-link {
+  position: relative;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition-base);
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+}
+
+.nav-link.active {
+  color: var(--accent-primary);
+}
+
+/* Nav Indicator */
+.nav-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 2px;
+  background: var(--accent-primary);
+  border-radius: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 var(--spacing-lg);
+  }
+
+  .nav-links {
+    gap: 0;
+  }
+
+  .nav-link {
+    font-size: var(--text-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .nav-logo button {
+    font-size: var(--text-lg);
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-container {
+    justify-content: center;
+  }
+}
+
+

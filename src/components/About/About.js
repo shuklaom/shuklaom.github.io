@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FiCode, FiLayout, FiSmartphone, FiGlobe } from 'react-icons/fi';
+import SimpleBackground from '../SimpleBackground/SimpleBackground';
 import './About.css';
 
 const About = () => {
@@ -36,6 +37,7 @@ const About = () => {
 
   return (
     <section id="about" className="about section-padding">
+      <SimpleBackground variant="default" />
       <div className="container">
         <motion.div
           className="section-header"

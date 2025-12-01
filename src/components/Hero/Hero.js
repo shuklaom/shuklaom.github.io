@@ -1,209 +1,166 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import Typed from 'typed.js';
-import { FiDownload, FiGithub, FiLinkedin, FiMail, FiArrowDown } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail, FiCalendar, FiMapPin, FiCode, FiDownload } from 'react-icons/fi';
 import './Hero.css';
 
 const Hero = () => {
   const typedRef = useRef(null);
 
   useEffect(() => {
-    const options = {
-      strings: [
-        'Software Engineer',
-        'Java Developer',
-        'C++ Programmer',
-        'Game Developer',
-        'Problem Solver'
-      ],
-      typeSpeed: 80,
-      backSpeed: 60,
-      backDelay: 2000,
-      loop: true,
-      showCursor: true,
-      cursorChar: '|'
+    const roles = ['Software Engineer', 'React Developer', 'Problem Solver', 'Java Developer', 'Game Developer', 'Web Developer', 'Team Player'];
+    let currentIndex = 0;
+    
+    const rotateText = () => {
+      if (typedRef.current) {
+        typedRef.current.textContent = roles[currentIndex];
+        currentIndex = (currentIndex + 1) % roles.length;
+      }
     };
-
-    const typed = new Typed(typedRef.current, options);
-
-    return () => {
-      typed.destroy();
-    };
+    
+    rotateText();
+    const interval = setInterval(rotateText, 3000);
+    
+    return () => clearInterval(interval);
   }, []);
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
-
-  const socialLinks = [
-    {
-      name: 'GitHub',
-      icon: FiGithub,
-      url: 'https://github.com/shuklaom',
-      color: '#333'
-    },
-    {
-      name: 'LinkedIn',
-      icon: FiLinkedin,
-      url: 'https://www.linkedin.com/in/om-shukla/',
-      color: '#0077b5'
-    },
-    {
-      name: 'Email',
-      icon: FiMail,
-      url: 'mailto:shuklaom.jobs@gmail.com',
-      color: '#ea4335'
-    }
+  const stats = [
+    { icon: <FiCalendar />, value: '2025', label: 'Expected Graduation' },
+    { icon: <FiMapPin />, value: 'Ames, IA', label: 'Location' },
+    { icon: <FiCode />, value: '10+', label: 'Technologies' }
   ];
 
   return (
     <section id="home" className="hero">
-      <div className="hero-background">
-        <div className="hero-shapes">
-          <div className="shape shape-1"></div>
-          <div className="shape shape-2"></div>
-          <div className="shape shape-3"></div>
-        </div>
-      </div>
-
       <div className="container">
-        <div className="hero-content">
+        <div className="hero-grid">
+          {/* Profile Image Circle - Top */}
           <motion.div
-            className="hero-text"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            className="hero-image-section"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.6, 0.05, 0.01, 0.9] }}
           >
-            <motion.p
+            <div className="hero-image-circle">
+              <img 
+                src="/assets/images/profile.jpg" 
+                alt="Om Shukla" 
+                className="hero-profile-image"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.parentElement.classList.add('no-image');
+                }}
+              />
+            </div>
+          </motion.div>
+
+          {/* Main Content */}
+          <motion.div
+            className="hero-main-content"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <motion.span 
               className="hero-greeting"
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
             >
-              Hello, I'm
-            </motion.p>
+              Hi, I'm
+            </motion.span>
             
             <motion.h1
               className="hero-name"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
             >
               Om Shukla
             </motion.h1>
             
             <motion.div
-              className="hero-role"
-              initial={{ opacity: 0, y: 30 }}
+              className="hero-role-wrapper"
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
             >
-              <span>I'm a </span>
-              <span ref={typedRef} className="typed-text"></span>
+              <span className="hero-role-label">I'm a </span>
+              <span ref={typedRef} className="hero-role-text"></span>
             </motion.div>
-            
+
             <motion.p
-              className="hero-description"
-              initial={{ opacity: 0, y: 30 }}
+              className="hero-bio"
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
+              transition={{ duration: 0.6, delay: 0.9 }}
             >
-              Software Engineering student with experience in Agile development and a passion for creating 
-              innovative solutions using Java, C++, and modern technologies. Aiming to use knowledge of 
-              programming and mobile application development to satisfy IT needs at your organization.
+              Problem solver, experienced with Agile software development, and a team player 
+              working towards a Bachelor of Science degree in Software Engineering at Iowa State University.
             </motion.p>
 
             <motion.div
-              className="hero-actions"
-              initial={{ opacity: 0, y: 30 }}
+              className="hero-action-buttons"
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1 }}
+              transition={{ duration: 0.6, delay: 1.1 }}
             >
-              <a
-                href="/resume.pdf"
-                className="btn btn-primary"
-                download
-                aria-label="Download Resume"
+              <a 
+                href="#contact" 
+                className="hero-btn hero-btn-primary"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                <FiMail />
+                Get In Touch
+              </a>
+              <a 
+                href="#projects" 
+                className="hero-btn hero-btn-secondary"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                View Projects
+              </a>
+              <a 
+                href="/assets/documents/resume.pdf" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-btn hero-btn-secondary"
               >
                 <FiDownload />
-                Download Resume
+                View Resume
               </a>
-              <button
-                className="btn btn-secondary"
-                onClick={() => scrollToSection('contact')}
-              >
-                Get In Touch
-              </button>
             </motion.div>
 
-            <motion.div
-              className="hero-social"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-            >
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={social.name}
-                  href={social.url}
-                  className="social-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.name}
-                  whileHover={{ 
-                    scale: 1.2, 
-                    y: -5,
-                    color: social.color 
-                  }}
-                  whileTap={{ scale: 0.9 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.6, 
-                    delay: 1.4 + index * 0.1 
-                  }}
-                >
-                  <social.icon />
-                </motion.a>
-              ))}
-            </motion.div>
           </motion.div>
 
+          {/* Quick Info Cards */}
           <motion.div
-            className="hero-image"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            className="hero-info-grid"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.5 }}
           >
-            <div className="image-container">
-              <div className="image-placeholder">
-                <span>Your Photo</span>
-              </div>
-              <div className="image-glow"></div>
-            </div>
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                className="hero-info-card"
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="info-icon">{stat.icon}</div>
+                <div className="info-content">
+                  <div className="info-value">{stat.value}</div>
+                  <div className="info-label">{stat.label}</div>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
-
-        <motion.div
-          className="scroll-indicator"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.5 }}
-        >
-          <button
-            className="scroll-btn"
-            onClick={() => scrollToSection('about')}
-            aria-label="Scroll to About section"
-          >
-            <FiArrowDown />
-          </button>
-        </motion.div>
       </div>
     </section>
   );

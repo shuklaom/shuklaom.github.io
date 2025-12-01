@@ -1,5 +1,7 @@
 .about {
+  position: relative;
   background: var(--bg-secondary);
+  overflow: hidden;
 }
 
 [data-theme="dark"] .about {
