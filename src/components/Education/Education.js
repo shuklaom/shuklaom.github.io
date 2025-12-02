@@ -10,7 +10,7 @@ const Education = () => {
     location: 'Ames, Iowa',
     period: '2020 - 2025',
     gpa: null,
-    status: 'Expected May 2025',
+    status: 'Expected December 2025',
     achievements: [
       'Rank #1 of 10+ C++ Programming',
       'Strong foundation in software development and Agile methodologies',
