@@ -4,30 +4,42 @@ import { FiAward, FiCalendar, FiMapPin, FiTrendingUp } from 'react-icons/fi';
 import './Education.css';
 
 const Education = () => {
-  const education = {
-    degree: 'Bachelor of Science, Software Engineering',
-    school: 'Iowa State University',
-    location: 'Ames, Iowa',
-    period: '2020 - 2025',
-    gpa: null,
-    status: 'Expected December 2025',
-    achievements: [
-      'Rank #1 of 10+ C++ Programming',
-      'Strong foundation in software development and Agile methodologies',
-      'Extensive project experience in web and mobile development',
-      'Active participation in software development teams'
-    ],
-    relevantCourses: [
-      'Data Structures',
-      'Algorithms',
-      'Software Design',
-      'Database Systems',
-      'Web Development',
-      'Mobile Development',
-      'Operating Systems',
-      'Computer Architecture'
-    ]
-  };
+  const educationList = [
+    {
+      degree: 'Bachelor of Science, Software Engineering',
+      school: 'Iowa State University',
+      location: 'Ames, Iowa',
+      period: '2020 - 2025',
+      gpa: null,
+      status: 'Expected December 2025',
+      achievements: [
+        'Rank #1 of 10+ C++ Programming',
+        'Strong foundation in software development and Agile methodologies',
+        'Extensive project experience in web and mobile development',
+        'Active participation in software development teams'
+      ],
+      relevantCourses: [
+        'Data Structures',
+        'Algorithms',
+        'Software Design',
+        'Database Systems',
+        'Web Development',
+        'Mobile Development',
+        'Operating Systems',
+        'Computer Architecture'
+      ]
+    },
+    {
+      degree: 'High School Diploma',
+      school: 'Pleasant Valley High School',
+      location: 'Bettendorf, Iowa',
+      period: '2016 - 2020',
+      gpa: null,
+      status: 'Graduated May 2020',
+      achievements: [],
+      relevantCourses: []
+    }
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -72,62 +84,70 @@ const Education = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          <motion.div className="education-main" variants={itemVariants}>
-            <div className="education-header">
-              <div className="education-icon">
-                <FiAward />
-              </div>
-              <div className="education-info">
-                <h3 className="education-degree">{education.degree}</h3>
-                <div className="education-school">{education.school}</div>
-                <div className="education-meta">
-                  <span className="meta-item">
-                    <FiMapPin />
-                    {education.location}
-                  </span>
-                  <span className="meta-divider">•</span>
-                  <span className="meta-item">
-                    <FiCalendar />
-                    {education.period}
-                  </span>
+          {educationList.map((education, index) => (
+            <React.Fragment key={index}>
+              <motion.div className="education-main" variants={itemVariants}>
+                <div className="education-header">
+                  <div className="education-icon">
+                    <FiAward />
+                  </div>
+                  <div className="education-info">
+                    <h3 className="education-degree">{education.degree}</h3>
+                    <div className="education-school">{education.school}</div>
+                    <div className="education-meta">
+                      <span className="meta-item">
+                        <FiMapPin />
+                        {education.location}
+                      </span>
+                      <span className="meta-divider">•</span>
+                      <span className="meta-item">
+                        <FiCalendar />
+                        {education.period}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="education-status">{education.status}</div>
                 </div>
-              </div>
-              <div className="education-status">{education.status}</div>
-            </div>
-          </motion.div>
+              </motion.div>
 
-          <motion.div className="education-details" variants={itemVariants}>
-            <div className="detail-section">
-              <h4 className="detail-title">Key Achievements</h4>
-              <ul className="achievement-list">
-                {education.achievements.map((achievement, index) => (
-                  <motion.li
-                    key={index}
-                    className="achievement-item"
-                    variants={itemVariants}
-                  >
-                    {achievement}
-                  </motion.li>
-                ))}
-              </ul>
-            </div>
+              {education.achievements.length > 0 && (
+                <motion.div className="education-details" variants={itemVariants}>
+                  <div className="detail-section">
+                    <h4 className="detail-title">Key Achievements</h4>
+                    <ul className="achievement-list">
+                      {education.achievements.map((achievement, achIndex) => (
+                        <motion.li
+                          key={achIndex}
+                          className="achievement-item"
+                          variants={itemVariants}
+                        >
+                          {achievement}
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </div>
 
-            <div className="detail-section">
-              <h4 className="detail-title">Relevant Coursework</h4>
-              <div className="course-grid">
-                {education.relevantCourses.map((course, index) => (
-                  <motion.div
-                    key={index}
-                    className="course-tag"
-                    variants={itemVariants}
-                    whileHover={{ y: -2 }}
-                  >
-                    {course}
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+                  {education.relevantCourses.length > 0 && (
+                    <div className="detail-section">
+                      <h4 className="detail-title">Relevant Coursework</h4>
+                      <div className="course-grid">
+                        {education.relevantCourses.map((course, courseIndex) => (
+                          <motion.div
+                            key={courseIndex}
+                            className="course-tag"
+                            variants={itemVariants}
+                            whileHover={{ y: -2 }}
+                          >
+                            {course}
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </motion.div>
+              )}
+            </React.Fragment>
+          ))}
         </motion.div>
       </div>
     </section>
