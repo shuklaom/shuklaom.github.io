@@ -7,7 +7,7 @@ const Hero = () => {
   const typedRef = useRef(null);
 
   useEffect(() => {
-    const roles = ['Software Engineer', 'React Developer', 'Problem Solver', 'Java Developer', 'Game Developer', 'Web Developer', 'Team Player'];
+    const roles = ['Software Engineer', 'Game Developer', 'Java Developer', 'Problem Solver', 'React Developer', 'Web Developer', 'Team Player'];
     let currentIndex = 0;
     
     const rotateText = () => {
