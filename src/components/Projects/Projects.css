@@ -125,6 +125,35 @@
   box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
 }
 
+/* Project Buttons */
+.project-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+}
+
+.project-button {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--accent-primary);
+  color: white;
+  border: 1px solid var(--accent-primary);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  display: inline-block;
+  text-align: center;
+}
+
+.project-button:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+  transform: translateY(-2px);
+}
+
 /* Project Impact */
 .project-impact {
   padding-top: var(--spacing-lg);

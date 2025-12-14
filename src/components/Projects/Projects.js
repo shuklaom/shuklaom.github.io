@@ -9,7 +9,7 @@ const Projects = () => {
       title: 'RUMBLE - Outdoor Roomba',
       description: 'Designed and developed a responsive React-based web application for managing autonomous outdoor cleaning robots with secure authentication and real-time monitoring capabilities.',
       technologies: ['React.js', 'JavaScript', 'Tailwind CSS', 'Spring Boot', 'Java', 'REST APIs', 'Google Maps API', 'Git'],
-      period: 'January 2025 - Present',
+      period: 'January 2025 - December 2025',
       impact: [
         'Implemented user registration and login system with password recovery, profile management, and form validation with user-friendly error handling',
         'Created an interactive dashboard featuring live robot location tracking via Google Maps API, fleet statistics visualization, and robot assignment management',
@@ -17,8 +17,11 @@ const Projects = () => {
         'Implemented modern UX features including typewriter animations, glassmorphism design, loading states, and accessibility standards',
         'Contributed REST API endpoints to Spring Boot backend for user profile management, password reset functionality, and robot-to-user assignment operations'
       ],
-      github: null,
-      demo: null
+      github: 'https://github.com/shuklaom/RUMBLE_Git_Clone',
+      demo: null,
+      buttons: [
+        { label: 'Project Team Website', url: '/assets/Websites/RUMBLE/TeamWebsite/index.html' }
+      ]
     },
     {
       title: 'Card Shark – Card Game for Android OS',
@@ -231,6 +234,16 @@ const Projects = () => {
                     <span key={techIndex} className="tech-tag">{tech}</span>
                   ))}
                 </div>
+
+                {project.buttons && project.buttons.length > 0 && (
+                  <div className="project-buttons">
+                    {project.buttons.map((button, btnIndex) => (
+                      <a key={btnIndex} href={button.url} target="_blank" rel="noopener noreferrer" className="project-button">
+                        {button.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
 
                 <div className="project-impact">
                   <h4 className="impact-title">Key Achievements</h4>
