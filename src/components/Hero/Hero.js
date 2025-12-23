@@ -25,7 +25,7 @@ const Hero = () => {
 
   const stats = [
     { icon: <FiCalendar />, value: '2025', label: 'Graduated' },
-    { icon: <FiMapPin />, value: 'Ames, IA', label: 'Location' },
+    { icon: <FiMapPin />, value: 'Bettendorf, IA', label: 'Location' },
     { icon: <FiCode />, value: '10+', label: 'Technologies' }
   ];
 
