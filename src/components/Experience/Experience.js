@@ -32,6 +32,21 @@ const Experience = () => {
         'Maintained floor displays and information presented to customers, inventory stocks in the store',
         'Handled sales and provided services related to technology needs of the students, faculty and staff on the campus'
       ]
+    },
+    {
+      id: 3,
+      title: 'Android Developer Intern',
+      company: 'John Deere Academy',
+      location: 'Bettendorf, Iowa',
+      period: 'January 2020 - May 2020',
+      type: 'Internship',
+      description: '',
+      achievements: [
+        'Designed and built Android application user interface with intuitive navigation and user experience flows',
+        'Implemented application logic and functionality while participating in Agile and Scrum development workflows',
+        'Collaborated with team of 6 members using version control, code reviews, and collaborative development practices',
+        'Tech Stack: Android Studio, Java, GitHub, Discord, WebEx, Trello'
+      ]
     }
   ];
 

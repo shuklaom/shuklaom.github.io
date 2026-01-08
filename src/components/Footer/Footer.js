@@ -1,9 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FiHeart, FiGithub, FiLinkedin, FiTwitter, FiMail, FiArrowUp } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
+  const navigate = useNavigate();
   const currentYear = new Date().getFullYear();
 
   const scrollToTop = () => {
@@ -166,6 +168,16 @@ const Footer = () => {
                 </motion.span>{' '}
                 and React.js
               </p>
+              <a 
+                href="#privacy" 
+                className="footer-privacy-link"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate('/privacy');
+                }}
+              >
+                Privacy Policy
+              </a>
             </div>
             
             <motion.button

@@ -154,6 +154,7 @@
 
 .footer-copyright {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 0.5rem;
   font-size: 0.9rem;
@@ -225,6 +226,27 @@
 
 [data-theme="dark"] .footer-copyright {
   color: var(--text-light);
+}
+
+.footer-privacy-link {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  text-decoration: none;
+  margin-top: 1rem;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.footer-privacy-link:hover {
+  color: var(--primary-color);
+}
+
+[data-theme="dark"] .footer-privacy-link {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .footer-privacy-link:hover {
+  color: var(--primary-color);
 }
 
 [data-theme="dark"] .footer-bottom {
