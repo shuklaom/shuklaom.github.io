@@ -145,6 +145,19 @@
   box-shadow: 0 6px 25px rgba(37, 99, 235, 0.4);
 }
 
+/* Dark mode button fixes */
+.dark-theme .hero-btn-primary {
+  background: #0099cc;
+  color: white;
+  box-shadow: 0 4px 20px rgba(0, 153, 204, 0.4);
+}
+
+.dark-theme .hero-btn-primary:hover {
+  background: #0077aa;
+  color: white;
+  box-shadow: 0 6px 25px rgba(0, 153, 204, 0.6);
+}
+
 .hero-btn-secondary {
   background: transparent;
   color: var(--accent-primary);

@@ -221,6 +221,37 @@ section {
   color: white;
 }
 
+/* Dark mode button improvements */
+.dark-theme .btn-primary {
+  box-shadow: 0 4px 20px rgba(0, 153, 204, 0.3);
+  font-weight: 700;
+}
+
+.dark-theme .btn-primary:hover {
+  box-shadow: 0 8px 30px rgba(0, 153, 204, 0.5);
+}
+
+.dark-theme .btn-secondary {
+  color: #0099cc;
+  border-color: #0099cc;
+  font-weight: 600;
+}
+
+.dark-theme .btn-secondary:hover {
+  background: #0099cc;
+  color: #1b1d1e;
+  box-shadow: 0 4px 20px rgba(0, 153, 204, 0.4);
+}
+
+/* Dark mode cyan text improvements */
+.dark-theme a {
+  color: #0099cc;
+}
+
+.dark-theme a:hover {
+  text-decoration: underline;
+}
+
 /* Loading Animation */
 .loading {
   position: fixed;

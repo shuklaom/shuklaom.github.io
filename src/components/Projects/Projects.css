@@ -154,6 +154,21 @@
   transform: translateY(-2px);
 }
 
+/* Dark mode project button fixes */
+.dark-theme .project-button {
+  background: #0099cc;
+  color: white;
+  border-color: #0099cc;
+  box-shadow: 0 2px 8px rgba(0, 153, 204, 0.3);
+}
+
+.dark-theme .project-button:hover {
+  background: #0077aa;
+  border-color: #0077aa;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 153, 204, 0.5);
+}
+
 /* Project Impact */
 .project-impact {
   padding-top: var(--spacing-lg);

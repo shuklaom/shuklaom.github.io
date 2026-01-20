@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import './Navigation.css';
 
 const Navigation = () => {
@@ -92,6 +93,8 @@ const Navigation = () => {
             </motion.button>
           ))}
         </div>
+
+        <ThemeToggle className="nav-theme-toggle" />
       </div>
     </motion.nav>
   );
