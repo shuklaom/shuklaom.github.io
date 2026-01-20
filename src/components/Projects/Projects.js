@@ -24,6 +24,20 @@ const Projects = () => {
       ]
     },
     {
+      title: 'RSFS (Ridiculously Simple File System)',
+      description: 'Developed a complete in-memory file system in C, implementing both basic and advanced file operations while mastering concurrent programming challenges.',
+      technologies: ['C'],
+      period: 'April 2024 - April 2024',
+      impact: [
+        'Built all 8 core API functions (open, append, read, fseek, close, delete, write, cut) supporting multi-block file storage with bitmap-based resource allocation.',
+        'Solved the readers-writers concurrency problem using POSIX pthreads, allowing multiple readers simultaneous access while enforcing exclusive writer locks to prevent data corruption.',
+        'Designed complete file system architecture including linked-list directory management, inode allocation tracking, and synchronized access controls across the entire system.',
+        'Validated implementation thoroughly with sequential tests covering file operations across block boundaries and concurrent stress tests with simultaneous readers and writers to verify correctness under contention.'
+      ],
+      github: 'https://github.com/shuklaom/RSFS',
+      demo: null
+    },
+    {
       title: 'Card Shark – Card Game for Android OS',
       description: 'Developed an Android card game with deck management and multiplayer functionality.',
       technologies: ['Spring Boot', 'Java', 'JPA', 'SQL', 'MySQL', 'GitHub'],
@@ -35,7 +49,7 @@ const Projects = () => {
         'Implemented logic to keep inventory to track of cards the player owns',
         'Created database design and table structure to store information about cards, players, decks and lobby'
       ],
-      github: null,
+      github: 'https://github.com/shuklaom/Card_Shark',
       demo: null
     },
     {
@@ -47,7 +61,7 @@ const Projects = () => {
         'Developed UI for a web application using HTML 6, CSS, JavaScript',
         'Designed and implemented screens for User authentication, Add/Update User Admin page, Assignments management pages and a dashboard to view list of assignments by due dates with necessary user actions and on-screen validations for user inputs and service calls'
       ],
-      github: null,
+      github: 'https://github.com/shuklaom/Assignment_Tracker_Web_Application',
       demo: null
     },
     {
@@ -60,7 +74,7 @@ const Projects = () => {
         'Created circuit for managing number of cars in each side of the lane at the intersection',
         'Created Verilog logic for managing greenlight in the intersection'
       ],
-      github: null,
+      github: 'https://github.com/shuklaom/Traffic_Light_System',
       demo: null
     },
     {
@@ -73,7 +87,7 @@ const Projects = () => {
         'Implemented multiple landscapes and maps, Pokémon trainers and facilities, transfer between maps, terrain generation and User Interface using C language',
         'Implemented loading Pokémon into the maps, and Pokémon battles in C++'
       ],
-      github: null,
+      github: 'https://github.com/shuklaom/Pokemon_Game',
       demo: null
     },
     {
@@ -86,7 +100,7 @@ const Projects = () => {
         'Worked on a team of 3 students to demonstrate various C coding skills like pointers, structures, file I/O, methods, exception handling',
         'Created and implemented Maze to start the game, level transitions, points, and inventory for the player and non-player characters'
       ],
-      github: null,
+      github: 'https://github.com/shuklaom/Text_Based_Maze_Runner',
       demo: null
     },
     {
