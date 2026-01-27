@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiAward, FiCalendar, FiMapPin, FiTrendingUp } from 'react-icons/fi';
+import { FiAward, FiCalendar, FiMapPin, FiTrendingUp, FiFileText, FiX } from 'react-icons/fi';
 import './Education.css';
 
 const Education = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [currentDiploma, setCurrentDiploma] = useState(null);
+
+  const openDiplomaModal = (diplomaUrl) => {
+    setCurrentDiploma(diplomaUrl);
+    setModalOpen(true);
+  };
+
+  const closeDiplomaModal = () => {
+    setModalOpen(false);
+    setCurrentDiploma(null);
+  };
   const educationList = [
     {
       degree: 'Bachelor of Science, Software Engineering',
@@ -12,6 +24,7 @@ const Education = () => {
       period: '2020 - 2025',
       gpa: null,
       status: 'Graduated December 2025',
+      diplomaUrl: '/assets/documents/Degrees/Om_Shukla_Diploma.pdf',
       achievements: [
         'Rank #1 of 10+ C++ Programming',
         'Strong foundation in software development and Agile methodologies',
@@ -106,7 +119,20 @@ const Education = () => {
                       </span>
                     </div>
                   </div>
-                  <div className="education-status">{education.status}</div>
+                  <div className="education-status-container">
+                    <div className="education-status">{education.status}</div>
+                    {education.diplomaUrl && (
+                      <motion.button
+                        className="diploma-button"
+                        onClick={() => openDiplomaModal(education.diplomaUrl)}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <FiFileText />
+                        <span>View Diploma</span>
+                      </motion.button>
+                    )}
+                  </div>
                 </div>
               </motion.div>
 
@@ -150,6 +176,28 @@ const Education = () => {
           ))}
         </motion.div>
       </div>
+
+      {/* Diploma Modal */}
+      {modalOpen && (
+        <div className="diploma-modal-overlay" onClick={closeDiplomaModal}>
+          <motion.div
+            className="diploma-modal"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button className="diploma-modal-close" onClick={closeDiplomaModal}>
+              <FiX />
+            </button>
+            <iframe
+              src={`${currentDiploma}#toolbar=0&navpanes=0&scrollbar=0`}
+              className="diploma-iframe"
+              title="Diploma"
+            />
+          </motion.div>
+        </div>
+      )}
     </section>
   );
 };

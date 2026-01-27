@@ -105,9 +105,12 @@
 
 .education-status {
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: var(--spacing-sm) var(--spacing-lg);
   background: var(--accent-primary);
-  border: none;
+  border: 2px solid var(--accent-primary);
   border-radius: 50px;
   font-size: var(--text-sm);
   font-weight: 600;
@@ -115,6 +118,54 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+  width: 100%;
+}
+
+/* Status Container */
+.education-status-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--spacing-md);
+  flex-shrink: 0;
+  min-width: 280px;
+}
+
+/* Diploma Button */
+.diploma-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--bg-secondary);
+  border: 2px solid var(--accent-primary);
+  border-radius: 50px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--accent-primary);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: 100%;
+}
+
+.diploma-button svg {
+  font-size: 1.125rem;
+}
+
+.diploma-button:hover {
+  background: var(--accent-primary);
+  color: white;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+  transform: translateY(-2px);
+}
+
+.diploma-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.2);
 }
 
 /* Education Details */
@@ -227,6 +278,10 @@
     align-self: flex-start;
   }
 
+  .education-status-container {
+    align-items: flex-start;
+  }
+
   .education-meta {
     flex-direction: column;
     align-items: flex-start;
@@ -265,5 +320,96 @@
 
   .course-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Diploma Modal */
+.diploma-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: var(--spacing-xl);
+  backdrop-filter: blur(4px);
+}
+
+.diploma-modal {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 90vh;
+  background: var(--bg-primary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.diploma-modal-close {
+  position: absolute;
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-light);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  z-index: 10001;
+}
+
+.diploma-modal-close:hover {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: white;
+  transform: rotate(90deg);
+}
+
+.diploma-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: var(--border-radius-lg);
+}
+
+@media (max-width: 768px) {
+  .diploma-modal-overlay {
+    padding: var(--spacing-md);
+  }
+
+  .diploma-modal {
+    height: 85vh;
+  }
+
+  .diploma-modal-close {
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .diploma-modal-overlay {
+    padding: var(--spacing-sm);
+  }
+
+  .diploma-modal {
+    height: 80vh;
+    border-radius: var(--border-radius-md);
   }
 }
