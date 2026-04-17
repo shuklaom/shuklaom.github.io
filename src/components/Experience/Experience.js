@@ -7,6 +7,18 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
+      title: 'Freelance Software Engnineer',
+      company: 'DataAnnotation',
+      location: 'Remote',
+      period: 'February 2026 - Present',
+      type: 'Freelance',
+      description: '',
+      achievements: [
+        
+      ]
+    },
+    {
+      id: 2,
       title: 'Repair Technician',
       company: 'Iowa State University Book Store',
       location: 'Ames, Iowa',
@@ -20,7 +32,7 @@ const Experience = () => {
       ]
     },
     {
-      id: 2,
+      id: 3,
       title: 'Sales Floor Associate - TechCyte',
       company: 'Iowa State University Book Store',
       location: 'Ames, Iowa',
@@ -34,7 +46,7 @@ const Experience = () => {
       ]
     },
     {
-      id: 3,
+      id: 4,
       title: 'Android Developer Intern',
       company: 'John Deere Academy',
       location: 'Bettendorf, Iowa',
