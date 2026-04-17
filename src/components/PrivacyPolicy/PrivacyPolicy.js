@@ -5,7 +5,7 @@ import './PrivacyPolicy.css';
 const PrivacyPolicy = () => {
   return (
     <section className="privacy-policy section">
-      <div className="container container-narrow">
+      <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

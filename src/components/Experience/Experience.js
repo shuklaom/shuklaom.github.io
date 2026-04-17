@@ -83,7 +83,7 @@ const Experience = () => {
 
   return (
     <section id="experience" className="experience section">
-      <div className="container container-narrow">
+      <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
