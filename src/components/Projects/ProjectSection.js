@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 import { DURATION, DELAY, TRANSFORM, viewportConfig } from '../../constants/animations';
@@ -38,6 +39,21 @@ const ProjectSection = ({ title, projects, delay = DELAY.TINY, cardVariants, con
       </motion.div>
     </motion.div>
   );
+};
+
+ProjectSection.propTypes = {
+  title: PropTypes.string.isRequired,
+  projects: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
+      impact: PropTypes.arrayOf(PropTypes.string).isRequired
+    })
+  ).isRequired,
+  delay: PropTypes.number,
+  cardVariants: PropTypes.object.isRequired,
+  containerVariants: PropTypes.object.isRequired
 };
 
 export default ProjectSection;

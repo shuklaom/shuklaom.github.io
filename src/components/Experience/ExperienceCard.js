@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import { FiBriefcase, FiCalendar, FiMapPin } from 'react-icons/fi';
 
@@ -44,6 +45,20 @@ const ExperienceCard = ({ experience, variants }) => {
       </div>
     </motion.article>
   );
+};
+
+ExperienceCard.propTypes = {
+  experience: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    company: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    period: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    achievements: PropTypes.arrayOf(PropTypes.string).isRequired
+  }).isRequired,
+  variants: PropTypes.object.isRequired
 };
 
 export default ExperienceCard;

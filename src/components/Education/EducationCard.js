@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import { FiAward, FiCalendar, FiMapPin, FiFileText } from 'react-icons/fi';
 
@@ -80,6 +81,21 @@ const EducationCard = ({ education, onDiplomaClick, variants }) => {
       )}
     </>
   );
+};
+
+EducationCard.propTypes = {
+  education: PropTypes.shape({
+    degree: PropTypes.string.isRequired,
+    school: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    period: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    achievements: PropTypes.arrayOf(PropTypes.string).isRequired,
+    relevantCourses: PropTypes.arrayOf(PropTypes.string).isRequired,
+    diplomaUrl: PropTypes.string
+  }).isRequired,
+  onDiplomaClick: PropTypes.func.isRequired,
+  variants: PropTypes.object.isRequired
 };
 
 export default EducationCard;

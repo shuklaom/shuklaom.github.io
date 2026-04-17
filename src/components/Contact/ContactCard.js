@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import { DURATION } from '../../constants/animations';
 
@@ -20,6 +21,16 @@ const ContactCard = ({ method, variants }) => {
       </div>
     </motion.a>
   );
+};
+
+ContactCard.propTypes = {
+  method: PropTypes.shape({
+    icon: PropTypes.node.isRequired,
+    label: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired
+  }).isRequired,
+  variants: PropTypes.object.isRequired
 };
 
 export default ContactCard;

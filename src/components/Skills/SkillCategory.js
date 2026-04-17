@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import { DURATION } from '../../constants/animations';
 
@@ -23,6 +24,14 @@ const SkillCategory = ({ category, variants }) => {
       </div>
     </motion.div>
   );
+};
+
+SkillCategory.propTypes = {
+  category: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    skills: PropTypes.arrayOf(PropTypes.string).isRequired
+  }).isRequired,
+  variants: PropTypes.object.isRequired
 };
 
 export default SkillCategory;

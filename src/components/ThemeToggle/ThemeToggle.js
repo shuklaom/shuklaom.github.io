@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import { FiSun, FiMoon } from 'react-icons/fi';
 import { useTheme } from '../../contexts/ThemeContext';
@@ -55,6 +56,10 @@ const ThemeToggle = ({ className = '' }) => {
       </span>
     </motion.button>
   );
+};
+
+ThemeToggle.propTypes = {
+  className: PropTypes.string
 };
 
 export default ThemeToggle;

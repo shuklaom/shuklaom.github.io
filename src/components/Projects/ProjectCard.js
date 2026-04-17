@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
 
@@ -63,6 +64,25 @@ const ProjectCard = ({ project, variants }) => {
       </div>
     </motion.div>
   );
+};
+
+ProjectCard.propTypes = {
+  project: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
+    period: PropTypes.string,
+    impact: PropTypes.arrayOf(PropTypes.string).isRequired,
+    github: PropTypes.string,
+    demo: PropTypes.string,
+    buttons: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired
+      })
+    )
+  }).isRequired,
+  variants: PropTypes.object.isRequired
 };
 
 export default ProjectCard;

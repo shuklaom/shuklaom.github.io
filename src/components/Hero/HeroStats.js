@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import { DURATION, DELAY, TRANSFORM } from '../../constants/animations';
 
@@ -26,6 +27,16 @@ const HeroStats = ({ stats }) => {
       ))}
     </motion.div>
   );
+};
+
+HeroStats.propTypes = {
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      icon: PropTypes.node.isRequired,
+      value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired
+    })
+  ).isRequired
 };
 
 export default HeroStats;

@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import { DURATION } from '../../constants/animations';
 import './SimpleBackground.css';
 
-export default function SimpleBackground({ variant = 'default' }) {
+const SimpleBackground = ({ variant = 'default' }) => {
   return (
     <div className="simple-background">
       {/* Animated gradient orbs */}
@@ -66,4 +67,10 @@ export default function SimpleBackground({ variant = 'default' }) {
       )}
     </div>
   );
-}
+};
+
+SimpleBackground.propTypes = {
+  variant: PropTypes.oneOf(['default', 'hero'])
+};
+
+export default SimpleBackground;

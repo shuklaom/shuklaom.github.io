@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import { FiX } from 'react-icons/fi';
 
@@ -25,6 +26,12 @@ const DiplomaModal = ({ isOpen, diplomaUrl, onClose }) => {
       </motion.div>
     </div>
   );
+};
+
+DiplomaModal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  diplomaUrl: PropTypes.string,
+  onClose: PropTypes.func.isRequired
 };
 
 export default DiplomaModal;
