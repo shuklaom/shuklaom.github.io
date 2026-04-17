@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { DURATION } from '../../constants/animations';
 import './SimpleBackground.css';
 
 export default function SimpleBackground({ variant = 'default' }) {
@@ -14,7 +15,7 @@ export default function SimpleBackground({ variant = 'default' }) {
           scale: [1, 1.2, 1],
         }}
         transition={{
-          duration: 20,
+          duration: DURATION.BG_MEDIUM,
           repeat: Infinity,
           ease: "linear"
         }}
@@ -27,7 +28,7 @@ export default function SimpleBackground({ variant = 'default' }) {
           scale: [1, 1.3, 1],
         }}
         transition={{
-          duration: 25,
+          duration: DURATION.BG_VERY_SLOW,
           repeat: Infinity,
           ease: "linear"
         }}
@@ -40,7 +41,7 @@ export default function SimpleBackground({ variant = 'default' }) {
           scale: [1, 1.1, 1],
         }}
         transition={{
-          duration: 15,
+          duration: DURATION.BG_FAST,
           repeat: Infinity,
           ease: "linear"
         }}
@@ -56,7 +57,7 @@ export default function SimpleBackground({ variant = 'default' }) {
               scale: [1, 1.15, 1],
             }}
             transition={{
-              duration: 22,
+              duration: DURATION.BG_SLOW,
               repeat: Infinity,
               ease: "linear"
             }}

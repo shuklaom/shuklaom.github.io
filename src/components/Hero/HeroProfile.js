@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { DURATION, EASING } from '../../constants/animations';
 
 const HeroProfile = () => {
   return (
@@ -7,7 +8,7 @@ const HeroProfile = () => {
       className="hero-image-section"
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.8, ease: [0.6, 0.05, 0.01, 0.9] }}
+      transition={{ duration: DURATION.SLOW, ease: EASING.SMOOTH }}
     >
       <div className="hero-image-circle">
         <img 

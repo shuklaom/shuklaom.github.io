@@ -1,37 +1,38 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { DURATION, DELAY, TRANSFORM } from '../../constants/animations';
 
 const HeroContent = ({ typedRef }) => {
   return (
     <motion.div
       className="hero-main-content"
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: TRANSFORM.Y_STANDARD }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.2 }}
+      transition={{ duration: DURATION.SLOW, delay: DELAY.TINY }}
     >
       <motion.span 
         className="hero-greeting"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.4 }}
+        transition={{ delay: DELAY.SMALL }}
       >
         Hi, I'm
       </motion.span>
       
       <motion.h1
         className="hero-name"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: TRANSFORM.Y_SMALL }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.5 }}
+        transition={{ duration: DURATION.STANDARD, delay: DELAY.MEDIUM }}
       >
         Om Shukla
       </motion.h1>
       
       <motion.div
         className="hero-role-wrapper"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: TRANSFORM.Y_SMALL }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.7 }}
+        transition={{ duration: DURATION.STANDARD, delay: DELAY.LARGE }}
       >
         <span className="hero-role-label">I'm a </span>
         <span ref={typedRef} className="hero-role-text"></span>
@@ -39,9 +40,9 @@ const HeroContent = ({ typedRef }) => {
 
       <motion.p
         className="hero-bio"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: TRANSFORM.Y_SMALL }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.9 }}
+        transition={{ duration: DURATION.STANDARD, delay: DELAY.X_LARGE }}
       >
         Problem solver, experienced with Agile software development, and a team player 
         working towards a Bachelor of Science degree in Software Engineering at Iowa State University.

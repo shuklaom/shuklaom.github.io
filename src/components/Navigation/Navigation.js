@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
+import { DURATION, TRANSFORM } from '../../constants/animations';
 import './Navigation.css';
 
 const Navigation = () => {
@@ -55,13 +56,13 @@ const Navigation = () => {
       className={`navigation ${isScrolled ? 'scrolled' : ''}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: DURATION.MEDIUM }}
     >
       <div className="nav-container">
         <motion.div
           className="nav-logo"
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.2 }}
+          whileHover={{ scale: TRANSFORM.SCALE_UP }}
+          transition={{ duration: DURATION.INSTANT }}
         >
           <button onClick={() => scrollToSection('hero')}>
             Om Shukla
@@ -75,7 +76,7 @@ const Navigation = () => {
               className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
               onClick={() => scrollToSection(item.id)}
               whileHover={{ y: -2 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: DURATION.INSTANT }}
             >
               {item.label}
               <AnimatePresence>
@@ -86,7 +87,7 @@ const Navigation = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: DURATION.FAST }}
                   />
                 )}
               </AnimatePresence>

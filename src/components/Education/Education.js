@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiAward, FiCalendar, FiMapPin, FiTrendingUp, FiFileText, FiX } from 'react-icons/fi';
+import EducationCard from './EducationCard';
+import DiplomaModal from './DiplomaModal';
+import { educationList } from './educationData';
+import { DURATION, DELAY, STAGGER, TRANSFORM, viewportConfig } from '../../constants/animations';
 import './Education.css';
 
 const Education = () => {
@@ -16,61 +19,24 @@ const Education = () => {
     setModalOpen(false);
     setCurrentDiploma(null);
   };
-  const educationList = [
-    {
-      degree: 'Bachelor of Science, Software Engineering',
-      school: 'Iowa State University',
-      location: 'Ames, Iowa',
-      period: '2020 - 2025',
-      gpa: null,
-      status: 'Graduated December 2025',
-      diplomaUrl: '/assets/documents/Degrees/Om_Shukla_Diploma.pdf',
-      achievements: [
-        'Rank #1 of 10+ C++ Programming',
-        'Strong foundation in software development and Agile methodologies',
-        'Extensive project experience in web and mobile development',
-        'Active participation in software development teams'
-      ],
-      relevantCourses: [
-        'Data Structures',
-        'Algorithms',
-        'Software Design',
-        'Database Systems',
-        'Web Development',
-        'Mobile Development',
-        'Operating Systems',
-        'Computer Architecture'
-      ]
-    },
-    {
-      degree: 'High School Diploma',
-      school: 'Pleasant Valley High School',
-      location: 'Bettendorf, Iowa',
-      period: '2016 - 2020',
-      gpa: null,
-      status: 'Graduated May 2020',
-      achievements: [],
-      relevantCourses: []
-    }
-  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
+        staggerChildren: STAGGER.FAST,
+        delayChildren: DELAY.TINY
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: TRANSFORM.Y_SMALL },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6 }
+      transition: { duration: DURATION.STANDARD }
     }
   };
 
@@ -78,10 +44,10 @@ const Education = () => {
     <section id="education" className="education section">
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: TRANSFORM.Y_STANDARD }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
+          viewport={viewportConfig}
+          transition={{ duration: DURATION.SLOW }}
         >
           <h2 className="section-title">Education</h2>
           <p className="section-description">
@@ -95,109 +61,25 @@ const Education = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={viewportConfig}
         >
           {educationList.map((education, index) => (
             <React.Fragment key={index}>
-              <motion.div className="education-main" variants={itemVariants}>
-                <div className="education-header">
-                  <div className="education-icon">
-                    <FiAward />
-                  </div>
-                  <div className="education-info">
-                    <h3 className="education-degree">{education.degree}</h3>
-                    <div className="education-school">{education.school}</div>
-                    <div className="education-meta">
-                      <span className="meta-item">
-                        <FiMapPin />
-                        {education.location}
-                      </span>
-                      <span className="meta-divider">•</span>
-                      <span className="meta-item">
-                        <FiCalendar />
-                        {education.period}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="education-status-container">
-                    <div className="education-status">{education.status}</div>
-                    {education.diplomaUrl && (
-                      <motion.button
-                        className="diploma-button"
-                        onClick={() => openDiplomaModal(education.diplomaUrl)}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <FiFileText />
-                        <span>View Diploma</span>
-                      </motion.button>
-                    )}
-                  </div>
-                </div>
-              </motion.div>
-
-              {education.achievements.length > 0 && (
-                <motion.div className="education-details" variants={itemVariants}>
-                  <div className="detail-section">
-                    <h4 className="detail-title">Key Achievements</h4>
-                    <ul className="achievement-list">
-                      {education.achievements.map((achievement, achIndex) => (
-                        <motion.li
-                          key={achIndex}
-                          className="achievement-item"
-                          variants={itemVariants}
-                        >
-                          {achievement}
-                        </motion.li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {education.relevantCourses.length > 0 && (
-                    <div className="detail-section">
-                      <h4 className="detail-title">Relevant Coursework</h4>
-                      <div className="course-grid">
-                        {education.relevantCourses.map((course, courseIndex) => (
-                          <motion.div
-                            key={courseIndex}
-                            className="course-tag"
-                            variants={itemVariants}
-                            whileHover={{ y: -2 }}
-                          >
-                            {course}
-                          </motion.div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </motion.div>
-              )}
+              <EducationCard 
+                education={education}
+                onDiplomaClick={openDiplomaModal}
+                variants={itemVariants}
+              />
             </React.Fragment>
           ))}
         </motion.div>
       </div>
 
-      {/* Diploma Modal */}
-      {modalOpen && (
-        <div className="diploma-modal-overlay" onClick={closeDiplomaModal}>
-          <motion.div
-            className="diploma-modal"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button className="diploma-modal-close" onClick={closeDiplomaModal}>
-              <FiX />
-            </button>
-            <iframe
-              src={`${currentDiploma}#toolbar=0&navpanes=0&scrollbar=0`}
-              className="diploma-iframe"
-              title="Diploma"
-            />
-          </motion.div>
-        </div>
-      )}
+      <DiplomaModal 
+        isOpen={modalOpen}
+        diplomaUrl={currentDiploma}
+        onClose={closeDiplomaModal}
+      />
     </section>
   );
 };

@@ -1,48 +1,27 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import SkillCategory from './SkillCategory';
+import { skillCategories } from './skillsData';
+import { DURATION, STAGGER, TRANSFORM, viewportConfig } from '../../constants/animations';
 import './Skills.css';
 
 const Skills = () => {
-  const skillCategories = [
-    {
-      title: 'Languages',
-      skills: ['Git', 'Tailwind CSS', 'React.js', 'C', 'C++', 'C#', 'Java', 'JavaScript', 'HTML/CSS', 'SQL', 'MySQL']
-    },
-    {
-      title: 'Frameworks & Tools',
-      skills: ['Spring Boot', 'JPA', 'Android Studio', 'Unity', 'Blender', 'GitHub', 'Discord', 'WebEx', 'Trello']
-    },
-    {
-      title: 'Certifications',
-      skills: ['Apple Certified Repair Technician', 
-              'Dell Certified Repair Technician', 
-              'C++ Class Development', 
-              'C++ Programming for Unreal Game Development', 
-              'Intermediate Object-Oriented Programming for Unreal Games', 
-              'Introduction to C++ Programming and Unreal', 
-              'More C++ Programming and Unreal',
-              'Unreal Engine 5 C++ — The Ultimate Game Developer',
-              'Microsoft Technology Associate – Introduction to Programming with Java',
-              'Rank #1 for C++ Programming on HackerRank']
-    }
-  ];
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: STAGGER.FAST
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: TRANSFORM.Y_SMALL },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5 }
+      transition: { duration: DURATION.MEDIUM }
     }
   };
 
@@ -50,10 +29,10 @@ const Skills = () => {
     <section id="skills" className="skills section">
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: TRANSFORM.Y_STANDARD }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
+          viewport={viewportConfig}
+          transition={{ duration: DURATION.SLOW }}
         >
           <h2 className="section-title">Skills</h2>
           <p className="section-description">
@@ -66,28 +45,14 @@ const Skills = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={viewportConfig}
         >
           {skillCategories.map((category, index) => (
-            <motion.div
+            <SkillCategory 
               key={index}
-              className="skill-category"
+              category={category}
               variants={itemVariants}
-            >
-              <h3 className="category-title">{category.title}</h3>
-              <div className="skill-tags">
-                {category.skills.map((skill, skillIndex) => (
-                  <motion.span
-                    key={skillIndex}
-                    className="skill-tag"
-                    whileHover={{ y: -2 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
-              </div>
-            </motion.div>
+            />
           ))}
         </motion.div>
       </div>

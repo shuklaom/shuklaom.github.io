@@ -1,14 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FiMail, FiDownload } from 'react-icons/fi';
+import { DURATION, DELAY, TRANSFORM } from '../../constants/animations';
 
 const HeroActions = () => {
   return (
     <motion.div
       className="hero-action-buttons"
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: TRANSFORM.Y_SMALL }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 1.1 }}
+      transition={{ duration: DURATION.STANDARD, delay: DELAY.XX_LARGE }}
     >
       <a 
         href="#contact" 
