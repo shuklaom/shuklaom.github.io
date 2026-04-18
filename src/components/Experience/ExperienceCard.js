@@ -4,12 +4,14 @@ import { motion } from 'framer-motion';
 import { FiBriefcase, FiCalendar, FiMapPin } from 'react-icons/fi';
 
 const ExperienceCard = ({ experience, variants }) => {
+  const hasContent = experience.description || (experience.achievements && experience.achievements.length > 0);
+  
   return (
     <motion.article
       className="experience-card"
       variants={variants}
     >
-      <div className="experience-header">
+      <div className={`experience-header ${!hasContent ? 'experience-header-only' : ''}`}>
         <div className="experience-icon">
           <FiBriefcase />
         </div>
@@ -33,16 +35,22 @@ const ExperienceCard = ({ experience, variants }) => {
         </div>
       </div>
 
-      <div className="experience-content">
-        <p className="experience-description">{experience.description}</p>
-        <ul className="achievement-list">
-          {experience.achievements.map((achievement, index) => (
-            <li key={index} className="achievement-item">
-              {achievement}
-            </li>
-          ))}
-        </ul>
-      </div>
+      {hasContent && (
+        <div className="experience-content">
+          {experience.description && (
+            <p className="experience-description">{experience.description}</p>
+          )}
+          {experience.achievements && experience.achievements.length > 0 && (
+            <ul className="achievement-list">
+              {experience.achievements.map((achievement, index) => (
+                <li key={index} className="achievement-item">
+                  {achievement}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
     </motion.article>
   );
 };
@@ -55,8 +63,8 @@ ExperienceCard.propTypes = {
     location: PropTypes.string.isRequired,
     period: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    achievements: PropTypes.arrayOf(PropTypes.string).isRequired
+    description: PropTypes.string,
+    achievements: PropTypes.arrayOf(PropTypes.string)
   }).isRequired,
   variants: PropTypes.object.isRequired
 };

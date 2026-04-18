@@ -1,13 +1,11 @@
 export const experiences = [
   {
     id: 1,
-    title: 'Freelance Software Engnineer',
+    title: 'Freelance Software Engineer',
     company: 'DataAnnotation',
     location: 'Remote',
     period: 'February 2026 - Present',
-    type: 'Freelance',
-    description: '',
-    achievements: []
+    type: 'Freelance'
   },
   {
     id: 2,

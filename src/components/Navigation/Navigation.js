@@ -2,20 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import { DURATION, TRANSFORM } from '../../constants/animations';
+import { sections, getNavItems } from '../../config/sections';
 import './Navigation.css';
 
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState('hero');
   const [isScrolled, setIsScrolled] = useState(false);
-
-  const navItems = [
-    { id: 'hero', label: 'Home' },
-    { id: 'education', label: 'Education' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'contact', label: 'Contact' }
-  ];
+  const navItems = getNavItems();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,13 +16,13 @@ const Navigation = () => {
       setIsScrolled(window.scrollY > 50);
 
       // Update active section based on scroll position
-      const sections = navItems.map(item => document.getElementById(item.id));
+      const sectionElements = sections.map(item => document.getElementById(item.id));
       const scrollPosition = window.scrollY + 100;
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
+      for (let i = sectionElements.length - 1; i >= 0; i--) {
+        const section = sectionElements[i];
         if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(navItems[i].id);
+          setActiveSection(sections[i].id);
           break;
         }
       }
@@ -70,7 +63,7 @@ const Navigation = () => {
         </motion.div>
 
         <div className="nav-links">
-          {navItems.slice(1).map((item) => (
+          {navItems.map((item) => (
             <motion.button
               key={item.id}
               className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
