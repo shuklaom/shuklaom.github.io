@@ -14,8 +14,21 @@ import Contact from './components/Contact/Contact';
 import SimpleBackground from './components/SimpleBackground/SimpleBackground';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 
+// Configuration
+import { sections } from './config/sections';
+
 // Styles
 import './App.css';
+
+// Component mapping - Maps section IDs to their React components
+const componentMap = {
+  hero: Hero,
+  education: Education,
+  experience: Experience,
+  skills: Skills,
+  projects: Projects,
+  contact: Contact
+};
 
 function App() {
   useEffect(() => {
@@ -37,12 +50,10 @@ function App() {
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/" element={
               <>
-                <Hero />
-                <Education />
-                <Experience />
-                <Skills />
-                <Projects />
-                <Contact />
+                {sections.map(({ id }) => {
+                  const Component = componentMap[id];
+                  return Component ? <Component key={id} /> : null;
+                })}
               </>
             } />
           </Routes>

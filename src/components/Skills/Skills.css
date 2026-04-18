@@ -1,6 +1,6 @@
 /* Skills Section - Solid Colors */
 .skills {
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
 }
 
 .skills-grid {
@@ -11,7 +11,7 @@
 
 /* Skill Category */
 .skill-category {
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
   border: 1px solid var(--border-light);
   border-radius: var(--border-radius-lg);
   padding: var(--spacing-2xl);

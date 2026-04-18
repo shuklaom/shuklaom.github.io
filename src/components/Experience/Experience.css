@@ -1,6 +1,6 @@
 /* Experience Section - Solid Colors */
 .experience {
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
 }
 
 .experience-list {
@@ -11,7 +11,7 @@
 
 /* Experience Card */
 .experience-card {
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   border: 1px solid var(--border-light);
   border-radius: var(--border-radius-lg);
   padding: var(--spacing-2xl);
@@ -30,6 +30,12 @@
   margin-bottom: var(--spacing-xl);
   padding-bottom: var(--spacing-xl);
   border-bottom: 1px solid var(--border-light);
+}
+
+.experience-header-only {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 .experience-icon {

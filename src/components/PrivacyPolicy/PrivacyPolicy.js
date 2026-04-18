@@ -1,15 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { DURATION, TRANSFORM } from '../../constants/animations';
 import './PrivacyPolicy.css';
 
 const PrivacyPolicy = () => {
   return (
     <section className="privacy-policy section">
-      <div className="container container-narrow">
+      <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: TRANSFORM.Y_STANDARD }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: DURATION.SLOW }}
           className="privacy-content"
         >
           <h1 className="privacy-title">Privacy Policy</h1>
