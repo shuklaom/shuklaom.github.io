@@ -8,35 +8,37 @@ A modern, responsive portfolio website built with React.js, showcasing my skills
 
 - **Modern Design**: Clean, professional design with smooth animations
 - **Responsive Layout**: Fully responsive across all devices and screen sizes
-- **Dark/Light Theme**: Toggle between dark and light themes
-- **Interactive Components**: Engaging UI with smooth transitions and hover effects
-- **Project Showcase**: Detailed project cards with live demos and GitHub links
-- **Contact Form**: Functional contact form with EmailJS integration
+- **Dark/Light Theme**: Toggle between dark and light themes with React Context
+- **Interactive Components**: Engaging UI with Framer Motion and AOS animations
+- **Component Architecture**: Modular, reusable components with PropTypes validation
+- **Data-Driven**: Centralized data files for easy content management
+- **Type-Safe**: PropTypes validation on all components
 - **SEO Optimized**: Meta tags and structured data for better search visibility
-- **Performance Optimized**: Fast loading with optimized images and code splitting
+- **Performance Optimized**: Optimized bundle size (106.73 kB gzipped)
 
 ## 🛠️ Built With
 
-- **Frontend Framework**: [React 18](https://reactjs.org/)
-- **Animations**: [Framer Motion](https://www.framer.com/motion/)
-- **Icons**: [React Icons](https://react-icons.github.io/react-icons/)
+- **Frontend Framework**: [React 18.3.1](https://reactjs.org/)
+- **Routing**: [React Router DOM 6.26.2](https://reactrouter.com/)
+- **Animations**: [Framer Motion 11.5.4](https://www.framer.com/motion/) & [AOS 2.3.4](https://michalsnik.github.io/aos/)
+- **Icons**: [React Icons 5.3.0](https://react-icons.github.io/react-icons/)
+- **Validation**: [PropTypes 15.8.1](https://www.npmjs.com/package/prop-types)
 - **Styling**: CSS3 with CSS Variables for theming
 - **Typography**: [Inter](https://fonts.google.com/specimen/Inter) & [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono)
-- **Form Handling**: [EmailJS](https://www.emailjs.com/)
-- **Deployment**: GitHub Pages with GitHub Actions
+- **Deployment**: GitHub Pages
 
 ### Dependencies
 
 ```json
 {
-  "react": "^18.2.0",
-  "react-dom": "^18.2.0",
-  "react-router-dom": "^6.8.1",
-  "framer-motion": "^10.12.4",
-  "react-icons": "^4.8.0",
-  "emailjs-com": "^3.2.0",
+  "react": "^18.3.1",
+  "react-dom": "^18.3.1",
+  "react-router-dom": "^6.26.2",
+  "framer-motion": "^11.5.4",
+  "react-icons": "^5.3.0",
+  "prop-types": "^15.8.1",
   "aos": "^2.3.4",
-  "typed.js": "^2.0.16"
+  "react-scripts": "5.0.1"
 }
 ```
 
@@ -69,6 +71,32 @@ A modern, responsive portfolio website built with React.js, showcasing my skills
 4. **Open your browser**
    Navigate to `http://localhost:3000` to view the website locally.
 
+## 🏆 Code Quality
+
+This portfolio follows modern React best practices:
+
+### Architecture Principles
+- **Component Composition**: Large components split into focused subcomponents
+- **Data Separation**: Content in dedicated data files for easy maintenance
+- **PropTypes Validation**: Runtime type checking on all component props
+- **Constant Extraction**: Magic numbers replaced with named constants
+- **CSS Variables**: Consistent theming with CSS custom properties
+
+### Code Standards
+- **PropTypes**: All components validate props with `prop-types` package
+- **Reusable Components**: Card components, modals, and UI elements are modular
+- **Animation Constants**: Centralized timing values prevent inconsistencies
+- **Context API**: Global state (theme) managed with React Context
+
+### File Organization
+```
+Component/
+├── Component.js          # Main component logic
+├── Component.css         # Component-specific styles
+├── Subcomponent.js       # Reusable child component
+└── componentData.js      # Data separated from UI
+```
+
 ## 📁 Project Structure
 
 ```
@@ -77,47 +105,98 @@ shuklaom.github.io/
 │   ├── index.html
 │   ├── manifest.json
 │   ├── robots.txt
-│   └── favicon.ico
+│   └── assets/
+│       ├── documents/
+│       └── images/
 ├── src/
 │   ├── components/
+│   │   ├── About/
+│   │   │   ├── About.js
+│   │   │   └── About.css
+│   │   ├── Contact/
+│   │   │   ├── Contact.js
+│   │   │   ├── Contact.css
+│   │   │   ├── ContactCard.js       # Reusable contact method card
+│   │   │   └── contactData.js       # Contact information data
+│   │   ├── Education/
+│   │   │   ├── Education.js
+│   │   │   ├── Education.css
+│   │   │   ├── EducationCard.js     # Individual education card
+│   │   │   ├── DiplomaModal.js      # Diploma viewer modal
+│   │   │   └── educationData.js     # Education history data
+│   │   ├── Experience/
+│   │   │   ├── Experience.js
+│   │   │   ├── Experience.css
+│   │   │   ├── ExperienceCard.js    # Individual experience card
+│   │   │   └── experienceData.js    # Work experience data
+│   │   ├── Footer/
+│   │   │   ├── Footer.js
+│   │   │   └── Footer.css
 │   │   ├── Header/
 │   │   │   ├── Header.js
 │   │   │   └── Header.css
 │   │   ├── Hero/
 │   │   │   ├── Hero.js
-│   │   │   └── Hero.css
-│   │   ├── About/
-│   │   │   ├── About.js
-│   │   │   └── About.css
-│   │   ├── Skills/
-│   │   │   ├── Skills.js
-│   │   │   └── Skills.css
-│   │   ├── Experience/
-│   │   │   ├── Experience.js
-│   │   │   └── Experience.css
+│   │   │   ├── Hero.css
+│   │   │   ├── HeroProfile.js       # Profile image component
+│   │   │   ├── HeroContent.js       # Main content with typed text
+│   │   │   ├── HeroActions.js       # CTA buttons
+│   │   │   └── HeroStats.js         # Stats display
+│   │   ├── Navigation/
+│   │   │   ├── Navigation.js
+│   │   │   └── Navigation.css
+│   │   ├── PrivacyPolicy/
+│   │   │   ├── PrivacyPolicy.js
+│   │   │   └── PrivacyPolicy.css
 │   │   ├── Projects/
 │   │   │   ├── Projects.js
-│   │   │   └── Projects.css
-│   │   ├── Contact/
-│   │   │   ├── Contact.js
-│   │   │   └── Contact.css
-│   │   ├── Footer/
-│   │   │   ├── Footer.js
-│   │   │   └── Footer.css
-│   │   └── ScrollToTop/
-│   │       ├── ScrollToTop.js
-│   │       └── ScrollToTop.css
-│   ├── App.js
-│   ├── App.css
-│   ├── index.js
-│   └── index.css
-├── .github/
-│   └── workflows/
-│       └── deploy.yml
+│   │   │   ├── Projects.css
+│   │   │   ├── ProjectCard.js       # Individual project card
+│   │   │   ├── ProjectSection.js    # Project category section
+│   │   │   └── projectsData.js      # Projects data
+│   │   ├── Skills/
+│   │   │   ├── Skills.js
+│   │   │   ├── Skills.css
+│   │   │   ├── SkillCategory.js     # Skill category component
+│   │   │   └── skillsData.js        # Skills data
+│   │   ├── SimpleBackground/
+│   │   │   ├── SimpleBackground.js  # Animated gradient background
+│   │   │   └── SimpleBackground.css
+│   │   └── ThemeToggle/
+│   │       ├── ThemeToggle.js       # Dark/light mode toggle
+│   │       └── ThemeToggle.css
+│   ├── constants/
+│   │   └── animations.js            # Centralized animation constants
+│   ├── contexts/
+│   │   └── ThemeContext.js          # Theme state management
+│   ├── styles/
+│   │   ├── animations.css           # Global animation styles
+│   │   └── responsive.css           # Responsive breakpoints
+│   ├── utils/
+│   │   └── discordTracker.js        # Optional visit tracking
+│   ├── App.js                       # Main app component
+│   ├── App.css                      # App-specific styles
+│   ├── index.js                     # Entry point
+│   └── index.css                    # Global styles & CSS variables
+├── build/                           # Production build output
 ├── package.json
-├── .gitignore
+├── jsconfig.json
 └── README.md
 ```
+
+## 🏗️ Architecture Highlights
+
+### Component Structure
+- **Main Components**: High-level section components (Hero, Projects, etc.)
+- **Subcomponents**: Reusable, modular pieces (ProjectCard, EducationCard, etc.)
+- **Data Files**: Centralized data management (projectsData.js, skillsData.js, etc.)
+- **Constants**: Shared animation values and configuration
+
+### Code Organization
+- **PropTypes Validation**: All components have runtime prop validation
+- **CSS Variables**: Consistent theming with CSS custom properties
+- **Animation Constants**: Centralized timing/easing values in `constants/animations.js`
+- **Context API**: Theme state managed with React Context
 
 ## 🎨 Customization
 
@@ -125,64 +204,98 @@ shuklaom.github.io/
 
 Update the following files with your personal information:
 
-1. **src/components/Hero/Hero.js** - Name, roles, and social links
-2. **src/components/About/About.js** - Personal information and bio
-3. **src/components/Contact/Contact.js** - Contact details
+1. **src/components/Hero/HeroContent.js** - Name, roles, and bio
+2. **src/components/Hero/HeroStats.js** - Profile statistics
+3. **src/components/Contact/contactData.js** - Contact information
 4. **public/index.html** - Meta tags and title
 
 ### Projects
 
-Add your projects in **src/components/Projects/Projects.js**:
+Add your projects in **src/components/Projects/projectsData.js**:
 
 ```javascript
-const projects = [
+export const fullStackProjects = [
   {
-    id: 1,
     title: 'Your Project Title',
-    category: 'Full Stack', // 'Full Stack', 'Frontend', 'Mobile'
-    description: 'Short description...',
-    longDescription: 'Detailed description...',
-    image: 'https://your-image-url.com/image.jpg',
+    description: 'Brief description of your project',
     technologies: ['React', 'Node.js', 'MongoDB'],
+    impact: [
+      'Key achievement or impact metric',
+      'Another important outcome'
+    ],
     github: 'https://github.com/yourusername/project',
     demo: 'https://your-demo-url.com',
-    features: ['Feature 1', 'Feature 2', 'Feature 3'],
-    status: 'Completed' // 'Completed', 'In Progress'
-  }
-];
-```
-
-### Skills
-
-Update your skills in **src/components/Skills/Skills.js**:
-
-```javascript
-const skillCategories = [
-  {
-    category: 'Frontend Development',
-    icon: FiCode,
-    skills: [
-      { name: 'React', level: 90, color: '#61DAFB' },
-      // Add more skills...
+    buttons: [
+      { label: 'Live Demo', url: 'https://demo.com' },
+      { label: 'GitHub', url: 'https://github.com/...' }
     ]
   }
 ];
 ```
 
-### Experience
+The data file includes three categories: `fullStackProjects`, `frontendProjects`, and `otherProjects`.
 
-Add your work experience in **src/components/Experience/Experience.js**:
+### Skills
+
+Update your skills in **src/components/Skills/skillsData.js**:
 
 ```javascript
-const experiences = [
+export const skillsData = [
   {
+    title: 'Programming Languages',
+    skills: ['JavaScript', 'Python', 'Java', 'C++']
+  },
+  {
+    title: 'Frontend Development',
+    skills: ['React', 'Vue.js', 'HTML5', 'CSS3']
+  }
+  // Add more categories...
+];
+```
+
+### Experience
+
+Add your work experience in **src/components/Experience/experienceData.js**:
+
+```javascript
+export const experienceData = [
+  {
+    id: 1,
     title: 'Your Job Title',
     company: 'Company Name',
-    location: 'City, Country',
-    duration: '2022 - Present',
-    type: 'Full-time', // 'Full-time', 'Part-time', 'Internship'
-    description: ['Achievement 1', 'Achievement 2'],
-    technologies: ['React', 'Node.js']
+    location: 'City, State',
+    period: 'Month Year - Present',
+    type: 'Full-time',
+    description: 'Brief role description',
+    achievements: [
+      'Key achievement or responsibility',
+      'Another important contribution'
+    ]
+  }
+];
+```
+
+### Education
+
+Update your education in **src/components/Education/educationData.js**:
+
+```javascript
+export const educationData = [
+  {
+    degree: 'Bachelor of Science in Computer Science',
+    school: 'University Name',
+    location: 'City, State',
+    period: 'Year - Year',
+    status: 'Expected Graduation: Month Year',
+    achievements: [
+      'GPA: 3.X/4.0',
+      'Relevant achievement'
+    ],
+    relevantCourses: [
+      'Course 1',
+      'Course 2'
+    ],
+    diplomaUrl: '/assets/documents/diploma.pdf' // optional
   }
 ];
 ```
@@ -193,65 +306,70 @@ Customize the color scheme in **src/index.css**:
 
 ```css
 :root {
-  --primary-color: #2563eb;     /* Your primary brand color */
-  --secondary-color: #1e40af;   /* Secondary color */
-  --accent-color: #3b82f6;      /* Accent color */
+  /* Primary Colors */
+  --primary-blue: #3b82f6;
+  --primary-purple: #8b5cf6;
+  
+  /* Accent Colors */
+  --accent-primary: #00d4ff;
+  --accent-secondary: #7c3aed;
+  
+  /* Background Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  
   /* Add more custom colors */
 }
 ```
 
-## 📧 Contact Form Setup
+### Animation Timing
 
-The contact form uses EmailJS for handling form submissions. To set it up:
+Adjust animation timing in **src/constants/animations.js**:
 
-1. **Create an EmailJS account** at [emailjs.com](https://www.emailjs.com/)
+```javascript
+export const DURATION = {
+  INSTANT: 0.2,
+  FAST: 0.3,
+  STANDARD: 0.5,
+  SLOW: 0.8
+};
 
-2. **Get your credentials**:
-   - Service ID
-   - Template ID  
-   - Public Key
+export const DELAY = {
+  TINY: 0.2,
+  SMALL: 0.3,
+  MEDIUM: 0.5,
+  LARGE: 0.8
+};
+```
+```
 
-3. **Update the contact form** in `src/components/Contact/Contact.js`:
-   ```javascript
-   await emailjs.send(
-     'YOUR_SERVICE_ID',    // Replace with your service ID
-     'YOUR_TEMPLATE_ID',   // Replace with your template ID
-     templateParams,
-     'YOUR_PUBLIC_KEY'     // Replace with your public key
-   );
-   ```
+## � Available Scripts
 
-4. **Create an email template** in your EmailJS dashboard with these variables:
-   - `{{from_name}}`
-   - `{{from_email}}`
-   - `{{subject}}`
-   - `{{message}}`
+- `npm start` - Start development server (runs on http://localhost:3000)
+- `npm run build` - Create production build
+- `npm run deploy` - Deploy to GitHub Pages
+- `npm run eject` - Eject from Create React App (⚠️ irreversible)
 
 ## 🚀 Deployment
 
 ### GitHub Pages (Recommended)
 
-The repository is configured for automatic deployment to GitHub Pages using GitHub Actions.
+The repository is configured for automatic deployment to GitHub Pages.
 
-1. **Push to main branch**:
+1. **Enable GitHub Pages**:
+   - Go to repository Settings → Pages
+   - Select "gh-pages" branch as source
+   - Click Save
+
+2. **Deploy your site**:
    ```bash
-   git add .
-   git commit -m "Initial commit"
-   git push origin main
+   npm run deploy
    ```
-
-2. **Enable GitHub Pages**:
-   - Go to repository Settings
-   - Navigate to Pages section
-   - Select "GitHub Actions" as source
-   - The site will be deployed automatically
 
 3. **Access your site**:
    Your portfolio will be available at: `https://yourusername.github.io`
 
-### Manual Deployment
-
-If you prefer manual deployment:
+### Manual Build
 
 ```bash
 # Build the project
@@ -282,10 +400,15 @@ The built files in the `build/` directory can be deployed to:
 
 The portfolio includes several performance optimizations:
 
-- **Code Splitting**: Components are loaded as needed
-- **Image Optimization**: Proper sizing and lazy loading
-- **CSS Optimization**: Minimal and organized stylesheets
-- **Bundle Analysis**: Use `npm run build` to analyze bundle size
+- **Component Refactoring**: Modular architecture with reusable subcomponents
+- **Centralized Constants**: Animation values in shared constants file
+- **PropTypes Validation**: Runtime type checking in development
+- **CSS Variables**: Dynamic theming without JavaScript overhead
+- **Optimized Build**: Production bundle size of 106.73 kB (gzipped)
+
+### Current Bundle Size
+- **JavaScript**: 106.73 kB (gzipped)
+- **CSS**: 8.52 kB (gzipped)
 
 ### Lighthouse Score Goals
 
@@ -306,18 +429,25 @@ npm install
 ```
 
 **2. GitHub Pages deployment fails**
-- Check that the repository name matches your username: `username.github.io`
-- Ensure GitHub Pages is enabled in repository settings
-- Verify the workflow has necessary permissions
+- Check that `homepage` in package.json matches your repository
+- Ensure gh-pages package is installed: `npm install gh-pages --save-dev`
+- Verify you have push access to the repository
 
-**3. Contact form not working**
-- Verify EmailJS credentials are correct
+**3. Animations not working**
+- Check if `framer-motion` and `aos` are installed correctly
+- Verify browser supports CSS animations
+- Check console for JavaScript errors
+
+**4. Theme toggle not working**
+- Verify ThemeContext is properly wrapped around App
 - Check browser console for errors
-- Ensure EmailJS template variables match
+- Clear browser cache and local storage
 
-**4. Animations not working**
-- Check if `framer-motion` is installed correctly
-- Verify browser support for CSS animations
+**5. Outdated browser data warning**
+```bash
+# Update browserslist database
+npx update-browserslist-db@latest
+```
 
 ## 📱 Browser Support
 
