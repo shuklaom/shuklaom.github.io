@@ -1,11 +1,8 @@
 /**
- * Discord Webhook Tracker
- * Logs page visits to a Discord channel
- * 
- * To use this, set your Discord webhook URL as an environment variable:
- * REACT_APP_DISCORD_WEBHOOK_URL=your_webhook_url_here
- * 
- * Or paste your webhook URL directly in the function below.
+ * Logs page visits through a server-side proxy endpoint.
+ *
+ * The endpoint must forward the request to Discord using a server-side
+ * webhook secret. Never put a Discord webhook URL in this React app.
  */
 
 function getBrowserName(ua) {
@@ -22,12 +19,15 @@ function getDeviceType() {
 }
 
 function logVisitToDiscord() {
-  // Get webhook URL from environment variable or replace with your webhook URL
-  const webhookUrl = process.env.REACT_APP_DISCORD_WEBHOOK_URL || '';
+  const trackerEndpoint = process.env.REACT_APP_VISIT_TRACKER_ENDPOINT || '';
   
-  // Don't log if webhook URL is not configured
-  if (!webhookUrl) {
-    console.log('Discord webhook URL not configured. Set REACT_APP_DISCORD_WEBHOOK_URL environment variable.');
+  // Tracking is disabled until a server-side proxy endpoint is configured.
+  if (!trackerEndpoint) {
+    return;
+  }
+  
+  if (!trackerEndpoint.startsWith('https://')) {
+    console.warn('Visit tracker endpoint must use HTTPS.');
     return;
   }
 
@@ -49,13 +49,15 @@ function logVisitToDiscord() {
       ],
     };
 
-    fetch(webhookUrl, {
+    fetch(trackerEndpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(message),
-    }).catch((err) => console.log('Visit logged to Discord'));
+    }).catch(() => {
+      // Analytics failures should never affect the portfolio experience.
+    });
   } catch (error) {
-    console.log('Error logging visit:', error);
+    // Analytics failures should never affect the portfolio experience.
   }
 }
 

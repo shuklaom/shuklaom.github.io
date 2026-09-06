@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
 import ProjectSection from './ProjectSection';
-import { universityProjects, preUniversityProjects } from './projectData';
+import { universityProjects, preUniversityProjects, personalProjects } from './projectData';
 import { DURATION, DELAY, STAGGER, TRANSFORM, viewportConfig } from '../../constants/animations';
 import './Projects.css';
 
@@ -41,9 +41,17 @@ const Projects = () => {
         </motion.div>
 
         <ProjectSection 
+          title="Personal Projects"
+          projects={personalProjects}
+          delay={DELAY.TINY}
+          cardVariants={cardVariants}
+          containerVariants={containerVariants}
+        />
+
+        <ProjectSection 
           title="University Projects"
           projects={universityProjects}
-          delay={DELAY.TINY}
+          delay={DELAY.SMALL}
           cardVariants={cardVariants}
           containerVariants={containerVariants}
         />

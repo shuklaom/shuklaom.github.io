@@ -5,7 +5,15 @@ export const experiences = [
     company: 'DataAnnotation',
     location: 'Remote',
     period: 'February 2026 - Present',
-    type: 'Freelance'
+    type: 'Freelance',
+    description: '',
+    achievements: [
+      'Evaluated and improved AI-generated code across Python, Java, and other technologies.',
+      'Tested software implementations for correctness, efficiency, and adherence to best practices.',
+      'Created detailed technical feedback to enhance large language model performance and accuracy.',
+      'Solved complex programming challenges and validated algorithmic solutions.',
+      'Worked independently on time-sensitive projects while maintaining high quality standards.'
+    ]
   },
   {
     id: 2,
@@ -14,11 +22,12 @@ export const experiences = [
     location: 'Ames, Iowa',
     period: 'January 2024 - May 2024',
     type: 'Part-time',
-    description: 'Worked on diagnosing and repairing hardware and software issues for Apple and Dell devices.',
+    description: '',
     achievements: [
       'Worked on diagnosing and repairing hardware and software issues for Apple and Dell devices, including laptops, and desktops',
       'Responsibilities included display, motherboard, battery and keyboard replacements, troubleshooting operating system problems, and providing technical support to customers',
-      'Maintained accurate repair records, and stayed updated with the latest industry trends to ensure high-quality service and customer satisfaction'
+      'Maintained accurate repair records, and stayed updated with the latest industry trends to ensure high-quality service and customer satisfaction',
+      'Ensured timely completion of repair tasks while maintaining high standards of quality and customer satisfaction.'
     ]
   },
   {
@@ -28,8 +37,9 @@ export const experiences = [
     location: 'Ames, Iowa',
     period: 'June 2022 - September 2022',
     type: 'Part-time',
-    description: 'Provided customer service and technical support for technology products in the campus bookstore.',
+    description: '',
     achievements: [
+      'Provided customer service and technical support for technology products in the campus bookstore.',
       'Recommended and helped choose computer devices to customers based on their major or position, researched and provided information on helpful accessories, software and tools and answered general technology questions',
       'Maintained floor displays and information presented to customers, inventory stocks in the store',
       'Handled sales and provided services related to technology needs of the students, faculty and staff on the campus'

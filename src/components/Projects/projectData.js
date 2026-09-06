@@ -143,3 +143,34 @@ export const preUniversityProjects = [
     demo: null
   }
 ];
+
+export const personalProjects = [
+  {
+    title: 'VOIDBREAKERS',
+    description: 'A first-person sci-fi survival game built in Unreal Engine, focused on exploration, resource management, and raiding derelict spacecraft. The project emphasizes modular, reusable gameplay systems and scalable architecture designed for future expansion.',
+    technologies: ['Unreal Engine', 'C++', 'Blueprints'],
+    period: 'August 2026 - Present',
+    impact: [
+      'Designed and implemented a reusable inventory and storage system capable of supporting player inventories, ship storage, and world containers.',
+      'Migrated core gameplay systems from Blueprint to C++ with a focus on maintainability, modularity, and separation of responsibilities.',
+      'Developed data-driven item architecture using Primary Data Assets and reusable item stack structures.',
+      'Built the project with a scalable foundation for future procedural ship generation and ship-raiding gameplay.'
+    ],
+    github: null,
+    demo: null
+  },
+  {
+    title: 'Everyday Deals - Affiliate Product Aggregation Platform',
+    description: 'A full-stack affiliate marketing application for discovering product deals, searching listings, filtering by category, and securely managing products through an admin API.',
+    technologies: ['React', 'Java 21', 'Spring Boot', 'MySQL'],
+    period: 'January 2026 - Present',
+    impact: [
+      'Built searchable, paginated product browsing with category filters.',
+      'Implemented RESTful product CRUD endpoints with soft-delete support.',
+      'Protected product write operations with an API-key security layer.',
+      'Configured MySQL persistence and seeded the database with 50 sample products.'
+    ],
+    github: 'https://github.com/shuklaom/AffliateMarketingProject.git',
+    demo: null
+  }
+];
